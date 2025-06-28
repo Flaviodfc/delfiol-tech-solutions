@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { MessageCircle, Mail, Phone, Facebook, Instagram, Linkedin, Code, Bot, Globe, Users, Briefcase, Star, ArrowRight, CheckCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+
 const Index = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -12,9 +13,8 @@ const Index = () => {
     company: "",
     message: ""
   });
-  const {
-    toast
-  } = useToast();
+  const { toast } = useToast();
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     toast({
@@ -28,16 +28,20 @@ const Index = () => {
       message: ""
     });
   };
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
   };
+
   const openWhatsApp = () => {
     window.open("https://wa.me/5511919776155?text=Olá! Gostaria de saber mais sobre os serviços da DelFiol Tech.", "_blank");
   };
-  return <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
       {/* Header */}
       <header className="bg-white/80 backdrop-blur-md border-b border-slate-200 sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
@@ -96,7 +100,15 @@ const Index = () => {
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
-            <Card className="group hover:shadow-xl transition-all duration-300 border-0 bg-gradient-to-br from-blue-50 to-white">
+            <Card className="group hover:shadow-xl transition-all duration-300 border-0 bg-gradient-to-br from-blue-50 to-white overflow-hidden">
+              <div className="relative h-48 overflow-hidden">
+                <img 
+                  src="https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=800" 
+                  alt="Desenvolvimento Web - Programador trabalhando em código"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-blue-900/20 to-transparent"></div>
+              </div>
               <CardHeader>
                 <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                   <Globe className="w-6 h-6 text-white" />
@@ -119,7 +131,15 @@ const Index = () => {
               </CardContent>
             </Card>
 
-            <Card className="group hover:shadow-xl transition-all duration-300 border-0 bg-gradient-to-br from-purple-50 to-white">
+            <Card className="group hover:shadow-xl transition-all duration-300 border-0 bg-gradient-to-br from-purple-50 to-white overflow-hidden">
+              <div className="relative h-48 overflow-hidden">
+                <img 
+                  src="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800" 
+                  alt="Inteligência Artificial - Robot e tecnologia futurística"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-purple-900/20 to-transparent"></div>
+              </div>
               <CardHeader>
                 <div className="w-12 h-12 bg-gradient-to-r from-purple-600 to-pink-500 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                   <Bot className="w-6 h-6 text-white" />
@@ -142,7 +162,15 @@ const Index = () => {
               </CardContent>
             </Card>
 
-            <Card className="group hover:shadow-xl transition-all duration-300 border-0 bg-gradient-to-br from-green-50 to-white">
+            <Card className="group hover:shadow-xl transition-all duration-300 border-0 bg-gradient-to-br from-green-50 to-white overflow-hidden">
+              <div className="relative h-48 overflow-hidden">
+                <img 
+                  src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800" 
+                  alt="Consultoria Tecnológica - Reunião de negócios e estratégia"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-green-900/20 to-transparent"></div>
+              </div>
               <CardHeader>
                 <div className="w-12 h-12 bg-gradient-to-r from-green-600 to-emerald-500 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                   <Briefcase className="w-6 h-6 text-white" />
@@ -339,16 +367,46 @@ const Index = () => {
               
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <Input type="text" name="name" placeholder="Seu Nome" value={formData.name} onChange={handleInputChange} required className="w-full" />
+                  <Input
+                    type="text"
+                    name="name"
+                    placeholder="Seu Nome"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full"
+                  />
                 </div>
                 <div>
-                  <Input type="email" name="email" placeholder="Seu E-mail" value={formData.email} onChange={handleInputChange} required className="w-full" />
+                  <Input
+                    type="email"
+                    name="email"
+                    placeholder="Seu E-mail"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full"
+                  />
                 </div>
                 <div>
-                  <Input type="text" name="company" placeholder="Sua Empresa" value={formData.company} onChange={handleInputChange} className="w-full" />
+                  <Input
+                    type="text"
+                    name="company"
+                    placeholder="Sua Empresa"
+                    value={formData.company}
+                    onChange={handleInputChange}
+                    className="w-full"
+                  />
                 </div>
                 <div>
-                  <Textarea name="message" placeholder="Como podemos ajudar você?" value={formData.message} onChange={handleInputChange} required className="w-full h-32" />
+                  <Textarea
+                    name="message"
+                    placeholder="Como podemos ajudar você?"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full h-32"
+                  />
                 </div>
                 <Button type="submit" className="w-full bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600">
                   Enviar Mensagem
@@ -387,10 +445,15 @@ const Index = () => {
 
       {/* WhatsApp Float Button */}
       <div className="fixed bottom-6 right-6 z-50">
-        <Button onClick={openWhatsApp} className="w-14 h-14 rounded-full bg-green-500 hover:bg-green-600 shadow-lg hover:shadow-xl transition-all duration-300 animate-pulse">
+        <Button
+          onClick={openWhatsApp}
+          className="w-14 h-14 rounded-full bg-green-500 hover:bg-green-600 shadow-lg hover:shadow-xl transition-all duration-300 animate-pulse"
+        >
           <MessageCircle className="w-6 h-6" />
         </Button>
       </div>
-    </div>;
+    </div>
+  );
 };
+
 export default Index;
