@@ -3,7 +3,7 @@ import emailjs from '@emailjs/browser';
 // Configurações do EmailJS
 const EMAILJS_SERVICE_ID = 'service_delfiol';
 const EMAILJS_TEMPLATE_ID = 'template_contact';
-const EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY'; // Será configurado posteriormente
+const EMAILJS_PUBLIC_KEY = 'fy_n9bAfr-NsCGl-Q'; // Será configurado posteriormente
 
 // Inicializar EmailJS
 emailjs.init(EMAILJS_PUBLIC_KEY);
