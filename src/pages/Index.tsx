@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -6,7 +5,6 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { MessageCircle, Mail, Phone, Facebook, Instagram, Linkedin, Code, Bot, Globe, Users, Briefcase, Star, ArrowRight, CheckCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-
 const Index = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -14,30 +12,32 @@ const Index = () => {
     company: "",
     message: ""
   });
-  const { toast } = useToast();
-
+  const {
+    toast
+  } = useToast();
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     toast({
       title: "Mensagem enviada!",
-      description: "Entraremos em contato em breve. Obrigado pelo interesse!",
+      description: "Entraremos em contato em breve. Obrigado pelo interesse!"
     });
-    setFormData({ name: "", email: "", company: "", message: "" });
+    setFormData({
+      name: "",
+      email: "",
+      company: "",
+      message: ""
+    });
   };
-
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
   };
-
   const openWhatsApp = () => {
     window.open("https://wa.me/5511919776155?text=Olá! Gostaria de saber mais sobre os serviços da DelFiol Tech.", "_blank");
   };
-
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
+  return <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
       {/* Header */}
       <header className="bg-white/80 backdrop-blur-md border-b border-slate-200 sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
@@ -222,7 +222,7 @@ const Index = () => {
                   FC
                 </div>
                 <CardTitle className="text-xl">Flavio Del Fiol Costa</CardTitle>
-                <CardDescription className="text-blue-600 font-medium">CTO & Freelancer</CardDescription>
+                <CardDescription className="text-blue-600 font-medium">CTO Freelancer</CardDescription>
               </CardHeader>
               <CardContent>
                 <p className="text-slate-600 mb-4">
@@ -339,46 +339,16 @@ const Index = () => {
               
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <Input
-                    type="text"
-                    name="name"
-                    placeholder="Seu Nome"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full"
-                  />
+                  <Input type="text" name="name" placeholder="Seu Nome" value={formData.name} onChange={handleInputChange} required className="w-full" />
                 </div>
                 <div>
-                  <Input
-                    type="email"
-                    name="email"
-                    placeholder="Seu E-mail"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full"
-                  />
+                  <Input type="email" name="email" placeholder="Seu E-mail" value={formData.email} onChange={handleInputChange} required className="w-full" />
                 </div>
                 <div>
-                  <Input
-                    type="text"
-                    name="company"
-                    placeholder="Sua Empresa"
-                    value={formData.company}
-                    onChange={handleInputChange}
-                    className="w-full"
-                  />
+                  <Input type="text" name="company" placeholder="Sua Empresa" value={formData.company} onChange={handleInputChange} className="w-full" />
                 </div>
                 <div>
-                  <Textarea
-                    name="message"
-                    placeholder="Como podemos ajudar você?"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full h-32"
-                  />
+                  <Textarea name="message" placeholder="Como podemos ajudar você?" value={formData.message} onChange={handleInputChange} required className="w-full h-32" />
                 </div>
                 <Button type="submit" className="w-full bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600">
                   Enviar Mensagem
@@ -417,15 +387,10 @@ const Index = () => {
 
       {/* WhatsApp Float Button */}
       <div className="fixed bottom-6 right-6 z-50">
-        <Button
-          onClick={openWhatsApp}
-          className="w-14 h-14 rounded-full bg-green-500 hover:bg-green-600 shadow-lg hover:shadow-xl transition-all duration-300 animate-pulse"
-        >
+        <Button onClick={openWhatsApp} className="w-14 h-14 rounded-full bg-green-500 hover:bg-green-600 shadow-lg hover:shadow-xl transition-all duration-300 animate-pulse">
           <MessageCircle className="w-6 h-6" />
         </Button>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
