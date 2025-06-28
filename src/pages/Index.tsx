@@ -43,9 +43,9 @@ const Index = () => {
         return;
       }
 
-      const success = await sendContactEmail(formData);
+      const result = await sendContactEmail(formData);
 
-      if (success) {
+      if (result.success) {
         toast({
           title: "✅ Mensagem enviada com sucesso!",
           description: "Recebemos sua mensagem e entraremos em contato em breve. Obrigado pelo interesse!"
@@ -59,13 +59,18 @@ const Index = () => {
           message: ""
         });
       } else {
-        throw new Error('Falha no envio');
+        // Mostrar erro específico retornado pela função sendContactEmail
+        toast({
+          title: "❌ Erro ao enviar mensagem",
+          description: result.error || "Ocorreu um erro ao enviar sua mensagem. Tente novamente ou entre em contato via WhatsApp.",
+          variant: "destructive"
+        });
       }
     } catch (error) {
       console.error('Erro ao enviar formulário:', error);
       toast({
         title: "❌ Erro ao enviar mensagem",
-        description: "Ocorreu um erro ao enviar sua mensagem. Tente novamente ou entre em contato via WhatsApp.",
+        description: "Ocorreu um erro inesperado. Tente novamente ou entre em contato via WhatsApp.",
         variant: "destructive"
       });
     } finally {
