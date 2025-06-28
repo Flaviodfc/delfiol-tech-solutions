@@ -3,30 +3,74 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { MessageCircle, Mail, Phone, Facebook, Instagram, Linkedin, Code, Bot, Globe, Users, Briefcase, Star, ArrowRight, CheckCircle } from "lucide-react";
+import { MessageCircle, Mail, Phone, Facebook, Instagram, Linkedin, Code, Bot, Globe, Users, Briefcase, Star, ArrowRight, CheckCircle, Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { sendContactEmail, type ContactFormData } from "@/lib/emailjs";
 
 const Index = () => {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<ContactFormData>({
     name: "",
     email: "",
     company: "",
     message: ""
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Mensagem enviada!",
-      description: "Entraremos em contato em breve. Obrigado pelo interesse!"
-    });
-    setFormData({
-      name: "",
-      email: "",
-      company: "",
-      message: ""
-    });
+    setIsSubmitting(true);
+
+    try {
+      // Validação básica
+      if (!formData.name || !formData.email || !formData.message) {
+        toast({
+          title: "Campos obrigatórios",
+          description: "Por favor, preencha nome, email e mensagem.",
+          variant: "destructive"
+        });
+        return;
+      }
+
+      // Validação de email
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(formData.email)) {
+        toast({
+          title: "Email inválido",
+          description: "Por favor, insira um email válido.",
+          variant: "destructive"
+        });
+        return;
+      }
+
+      const success = await sendContactEmail(formData);
+
+      if (success) {
+        toast({
+          title: "✅ Mensagem enviada com sucesso!",
+          description: "Recebemos sua mensagem e entraremos em contato em breve. Obrigado pelo interesse!"
+        });
+        
+        // Limpar formulário
+        setFormData({
+          name: "",
+          email: "",
+          company: "",
+          message: ""
+        });
+      } else {
+        throw new Error('Falha no envio');
+      }
+    } catch (error) {
+      console.error('Erro ao enviar formulário:', error);
+      toast({
+        title: "❌ Erro ao enviar mensagem",
+        description: "Ocorreu um erro ao enviar sua mensagem. Tente novamente ou entre em contato via WhatsApp.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -42,6 +86,10 @@ const Index = () => {
 
   const openLinkedIn = (url: string) => {
     window.open(url, "_blank");
+  };
+
+  const openEmail = () => {
+    window.open("mailto:flaviodfc@gmail.com?subject=Contato DelFiol Tech&body=Olá! Gostaria de saber mais sobre os serviços da DelFiol Tech.", "_blank");
   };
 
   return (
@@ -343,7 +391,7 @@ const Index = () => {
               <MessageCircle className="mr-2 w-5 h-5" />
               Falar no WhatsApp
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-blue-600 text-lg px-8 py-6">
+            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-blue-600 text-lg px-8 py-6" onClick={openEmail}>
               <Mail className="mr-2 w-5 h-5" />
               Enviar E-mail
             </Button>
@@ -370,7 +418,7 @@ const Index = () => {
                   </div>
                   <div className="flex items-center space-x-3">
                     <Mail className="w-6 h-6 text-blue-500" />
-                    <span className="text-slate-700">contato@delfioltech.com</span>
+                    <span className="text-slate-700">flaviodfc@gmail.com</span>
                   </div>
                 </div>
                 
@@ -392,10 +440,11 @@ const Index = () => {
                   <Input
                     type="text"
                     name="name"
-                    placeholder="Seu Nome"
+                    placeholder="Seu Nome *"
                     value={formData.name}
                     onChange={handleInputChange}
                     required
+                    disabled={isSubmitting}
                     className="w-full"
                   />
                 </div>
@@ -403,10 +452,11 @@ const Index = () => {
                   <Input
                     type="email"
                     name="email"
-                    placeholder="Seu E-mail"
+                    placeholder="Seu E-mail *"
                     value={formData.email}
                     onChange={handleInputChange}
                     required
+                    disabled={isSubmitting}
                     className="w-full"
                   />
                 </div>
@@ -414,25 +464,41 @@ const Index = () => {
                   <Input
                     type="text"
                     name="company"
-                    placeholder="Sua Empresa"
+                    placeholder="Sua Empresa (opcional)"
                     value={formData.company}
                     onChange={handleInputChange}
+                    disabled={isSubmitting}
                     className="w-full"
                   />
                 </div>
                 <div>
                   <Textarea
                     name="message"
-                    placeholder="Como podemos ajudar você?"
+                    placeholder="Como podemos ajudar você? *"
                     value={formData.message}
                     onChange={handleInputChange}
                     required
+                    disabled={isSubmitting}
                     className="w-full h-32"
                   />
                 </div>
-                <Button type="submit" className="w-full bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600">
-                  Enviar Mensagem
+                <Button 
+                  type="submit" 
+                  disabled={isSubmitting}
+                  className="w-full bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 disabled:opacity-50"
+                >
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      Enviando...
+                    </>
+                  ) : (
+                    'Enviar Mensagem'
+                  )}
                 </Button>
+                <p className="text-sm text-slate-500 text-center">
+                  * Campos obrigatórios
+                </p>
               </form>
             </div>
           </div>
