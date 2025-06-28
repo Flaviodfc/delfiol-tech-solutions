@@ -378,8 +378,12 @@ const Index = () => {
             {/* Flavio */}
             <Card className="glass border-cyan-400/20 hover:border-cyan-400/50 modern-hover group overflow-hidden">
               <CardHeader className="text-center relative">
-                <div className="w-32 h-32 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full mx-auto mb-6 flex items-center justify-center text-white text-3xl font-bold animate-pulse-glow group-hover:animate-float">
-                  FC
+                <div className="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4 border-cyan-400/30 group-hover:border-cyan-400/60 transition-all duration-300 animate-pulse-glow group-hover:animate-float">
+                  <img 
+                    src="/flavio.png" 
+                    alt="Flavio Del Fiol Costa - CTO Freelancer"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <CardTitle className="text-2xl text-white group-hover:text-cyan-400 transition-colors">
                   Flavio Del Fiol Costa
@@ -407,8 +411,12 @@ const Index = () => {
             {/* Lucas */}
             <Card className="glass border-purple-400/20 hover:border-purple-400/50 modern-hover group overflow-hidden">
               <CardHeader className="text-center relative">
-                <div className="w-32 h-32 bg-gradient-to-r from-purple-400 to-pink-500 rounded-full mx-auto mb-6 flex items-center justify-center text-white text-3xl font-bold animate-pulse-glow group-hover:animate-float">
-                  LC
+                <div className="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4 border-purple-400/30 group-hover:border-purple-400/60 transition-all duration-300 animate-pulse-glow group-hover:animate-float">
+                  <img 
+                    src="/lucas.png" 
+                    alt="Lucas Del Fiol Costa - Engenheiro de Software"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <CardTitle className="text-2xl text-white group-hover:text-purple-400 transition-colors">
                   Lucas Del Fiol Costa
@@ -436,8 +444,12 @@ const Index = () => {
             {/* Paula */}
             <Card className="glass border-emerald-400/20 hover:border-emerald-400/50 modern-hover group overflow-hidden">
               <CardHeader className="text-center relative">
-                <div className="w-32 h-32 bg-gradient-to-r from-emerald-400 to-teal-500 rounded-full mx-auto mb-6 flex items-center justify-center text-white text-3xl font-bold animate-pulse-glow group-hover:animate-float">
-                  PC
+                <div className="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4 border-emerald-400/30 group-hover:border-emerald-400/60 transition-all duration-300 animate-pulse-glow group-hover:animate-float">
+                  <img 
+                    src="/paula.png" 
+                    alt="Paula Del Fiol Costa - Creative Director"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <CardTitle className="text-2xl text-white group-hover:text-emerald-400 transition-colors">
                   Paula Del Fiol Costa
