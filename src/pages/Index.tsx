@@ -40,6 +40,10 @@ const Index = () => {
     window.open("https://wa.me/5511919776155?text=Olá! Gostaria de saber mais sobre os serviços da DelFiol Tech.", "_blank");
   };
 
+  const openLinkedIn = (url: string) => {
+    window.open(url, "_blank");
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
       {/* Header */}
@@ -244,6 +248,7 @@ const Index = () => {
           </div>
           
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {/* Flavio - Primeira posição */}
             <Card className="text-center hover:shadow-xl transition-all duration-300 border-0 bg-gradient-to-br from-blue-50 to-white">
               <CardHeader>
                 <div className="w-24 h-24 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-2xl font-bold">
@@ -257,47 +262,64 @@ const Index = () => {
                   Experiência full stack com foco na solução de problemas através da tecnologia. 
                   Formado em engenharia, pós-graduado em análise e auditoria de sistemas e em psicologia transpessoal.
                 </p>
-                <Button variant="outline" size="sm" className="w-full">
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  className="w-full hover:bg-blue-50 hover:border-blue-300"
+                  onClick={() => openLinkedIn("https://www.linkedin.com/in/flaviodfc/")}
+                >
                   <Linkedin className="w-4 h-4 mr-2" />
                   LinkedIn
                 </Button>
               </CardContent>
             </Card>
 
+            {/* Paula - Segunda posição (cores do Lucas) */}
             <Card className="text-center hover:shadow-xl transition-all duration-300 border-0 bg-gradient-to-br from-purple-50 to-white">
               <CardHeader>
                 <div className="w-24 h-24 bg-gradient-to-r from-purple-600 to-pink-500 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-2xl font-bold">
-                  LC
-                </div>
-                <CardTitle className="text-xl">Lucas Del Fiol Costa</CardTitle>
-                <CardDescription className="text-purple-600 font-medium">Engenheiro de Software</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-slate-600 mb-4">
-                  Formado em engenharia eletrônica pela POLI e técnico em mecatrônica pela ETEC. 
-                  Especialista em desenvolvimento de soluções tecnológicas inovadoras.
-                </p>
-                <Button variant="outline" size="sm" className="w-full">
-                  <Linkedin className="w-4 h-4 mr-2" />
-                  LinkedIn
-                </Button>
-              </CardContent>
-            </Card>
-
-            <Card className="text-center hover:shadow-xl transition-all duration-300 border-0 bg-gradient-to-br from-green-50 to-white">
-              <CardHeader>
-                <div className="w-24 h-24 bg-gradient-to-r from-green-600 to-emerald-500 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-2xl font-bold">
                   PC
                 </div>
                 <CardTitle className="text-xl">Paula Del Fiol Costa</CardTitle>
-                <CardDescription className="text-green-600 font-medium">Creative Director</CardDescription>
+                <CardDescription className="text-purple-600 font-medium">Creative Director</CardDescription>
               </CardHeader>
               <CardContent>
                 <p className="text-slate-600 mb-4">
                   Mente criativa responsável pela criação e execução de projetos. 
                   Cosplay e prop maker, marketing manager formada em administração.
                 </p>
-                <Button variant="outline" size="sm" className="w-full">
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  className="w-full hover:bg-purple-50 hover:border-purple-300"
+                  onClick={() => openLinkedIn("https://www.linkedin.com/in/pauladelfiol/")}
+                >
+                  <Linkedin className="w-4 h-4 mr-2" />
+                  LinkedIn
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* Lucas - Terceira posição (cores da Paula) */}
+            <Card className="text-center hover:shadow-xl transition-all duration-300 border-0 bg-gradient-to-br from-green-50 to-white">
+              <CardHeader>
+                <div className="w-24 h-24 bg-gradient-to-r from-green-600 to-emerald-500 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-2xl font-bold">
+                  LC
+                </div>
+                <CardTitle className="text-xl">Lucas Del Fiol Costa</CardTitle>
+                <CardDescription className="text-green-600 font-medium">Engenheiro de Software</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-slate-600 mb-4">
+                  Formado em engenharia eletrônica pela POLI e técnico em mecatrônica pela ETEC. 
+                  Especialista em desenvolvimento de soluções tecnológicas inovadoras.
+                </p>
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  className="w-full hover:bg-green-50 hover:border-green-300"
+                  onClick={() => openLinkedIn("https://www.linkedin.com/in/lucasdelfiol/")}
+                >
                   <Linkedin className="w-4 h-4 mr-2" />
                   LinkedIn
                 </Button>
