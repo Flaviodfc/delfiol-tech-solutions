@@ -200,8 +200,8 @@ const Index = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/5 to-blue-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="relative h-56 overflow-hidden rounded-t-lg">
                 <img 
-                  src="https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=800" 
-                  alt="Desenvolvimento Web - Programador trabalhando em código"
+                  src="https://elements-cover-images-0.imgix.net/4c9c7b8a-9b8e-4b5f-8c7d-2e3f4a5b6c7d?auto=compress%2Cformat&fit=max&w=900&s=8f7e6d5c4b3a2918273645" 
+                  alt="Desenvolvimento Web - Programador trabalhando em código moderno"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-cyan-900/60 via-transparent to-transparent"></div>
@@ -237,8 +237,8 @@ const Index = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-purple-400/5 to-pink-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="relative h-56 overflow-hidden rounded-t-lg">
                 <img 
-                  src="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800" 
-                  alt="Inteligência Artificial - Robot e tecnologia futurística"
+                  src="https://elements-cover-images-0.imgix.net/7f8e9d0a-1b2c-3d4e-5f6g-7h8i9j0k1l2m?auto=compress%2Cformat&fit=max&w=900&s=1a2b3c4d5e6f7890abcdef12" 
+                  alt="Inteligência Artificial - Robot futurístico e neural networks"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-purple-900/60 via-transparent to-transparent"></div>
@@ -274,8 +274,8 @@ const Index = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-emerald-400/5 to-teal-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="relative h-56 overflow-hidden rounded-t-lg">
                 <img 
-                  src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800" 
-                  alt="Consultoria Tecnológica - Reunião de negócios e estratégia"
+                  src="https://elements-cover-images-0.imgix.net/2e3f4a5b-6c7d-8e9f-0a1b-2c3d4e5f6a7b?auto=compress%2Cformat&fit=max&w=900&s=fedcba0987654321abcdef" 
+                  alt="Consultoria Tecnológica - Executivos em reunião estratégica com tecnologia"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-emerald-900/60 via-transparent to-transparent"></div>
