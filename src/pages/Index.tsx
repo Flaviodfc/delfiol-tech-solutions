@@ -33,7 +33,7 @@ const Index = () => {
   };
 
   const openWhatsApp = () => {
-    window.open("https://wa.me/5511999999999?text=Olá! Gostaria de saber mais sobre os serviços da DelFiol Tech.", "_blank");
+    window.open("https://wa.me/5511919776155?text=Olá! Gostaria de saber mais sobre os serviços da DelFiol Tech.", "_blank");
   };
 
   return (
@@ -316,7 +316,7 @@ const Index = () => {
                 <div className="space-y-4">
                   <div className="flex items-center space-x-3">
                     <MessageCircle className="w-6 h-6 text-green-500" />
-                    <span className="text-slate-700">WhatsApp: (11) 99999-9999</span>
+                    <span className="text-slate-700">WhatsApp: (11) 91977-6155</span>
                   </div>
                   <div className="flex items-center space-x-3">
                     <Mail className="w-6 h-6 text-blue-500" />
@@ -410,7 +410,7 @@ const Index = () => {
             </Button>
           </div>
           <p className="text-slate-500 text-sm">
-            © 2024 DelFiol Tech. Todos os direitos reservados.
+            © 2025 DelFiol Tech. Todos os direitos reservados.
           </p>
         </div>
       </footer>
