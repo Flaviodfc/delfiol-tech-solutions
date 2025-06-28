@@ -139,27 +139,28 @@ const Index = () => {
         <div className="container mx-auto text-center relative z-10">
           <div className="animate-float">
             <h1 className="text-6xl md:text-8xl font-bold text-white mb-8 leading-tight">
-              Tecnologia <span className="holographic-text animate-gradient">Quântica</span> para
+              Tecnologia <span className="holographic-text animate-gradient">Acessível</span> para
               <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 animate-gradient">
-                Empresas Visionárias
+                Pequenas e Médias Empresas
               </span>
             </h1>
           </div>
           <p className="text-xl md:text-2xl text-white/80 mb-12 max-w-4xl mx-auto leading-relaxed">
-            Revolucione seu negócio com soluções de <span className="text-cyan-400 font-semibold">IA avançada</span>, 
-            <span className="text-purple-400 font-semibold"> desenvolvimento web futurista</span> e 
-            <span className="text-pink-400 font-semibold"> consultoria tecnológica de ponta</span>
+            Soluções profissionais em <span className="text-cyan-400 font-semibold">desenvolvimento web</span>, 
+            <span className="text-purple-400 font-semibold"> inteligência artificial</span> e 
+            <span className="text-pink-400 font-semibold"> consultoria tecnológica</span>. 
+            Democratizando o acesso às tecnologias que antes eram exclusivas das grandes corporações.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <Button size="lg" className="futuristic-btn bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 hover:from-cyan-400 hover:via-blue-500 hover:to-purple-500 text-xl px-12 py-8 rounded-2xl transform hover:scale-105 transition-all duration-300">
               <Rocket className="mr-3 w-6 h-6" />
-              Iniciar Jornada
+              Começar Agora
               <ArrowRight className="ml-3 w-6 h-6" />
             </Button>
             <Button size="lg" variant="outline" className="glass border-cyan-400/50 text-cyan-400 hover:bg-cyan-400/10 text-xl px-12 py-8 rounded-2xl" onClick={openWhatsApp}>
               <MessageCircle className="mr-3 w-6 h-6" />
-              Contato Direto
+              Falar no WhatsApp
             </Button>
           </div>
           
@@ -186,10 +187,10 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-20">
             <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">
-              Soluções <span className="holographic-text">Futuristas</span>
+              Nossos <span className="holographic-text">Serviços</span>
             </h2>
             <p className="text-xl text-white/70 max-w-3xl mx-auto">
-              Tecnologias de próxima geração para acelerar exponencialmente o crescimento do seu negócio
+              Soluções completas para acelerar o crescimento do seu negócio
             </p>
           </div>
           
@@ -200,7 +201,7 @@ const Index = () => {
               <div className="relative h-56 overflow-hidden rounded-t-lg">
                 <img 
                   src="https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=800" 
-                  alt="Desenvolvimento Web Futurista"
+                  alt="Desenvolvimento Web - Programador trabalhando em código"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-cyan-900/60 via-transparent to-transparent"></div>
@@ -212,21 +213,21 @@ const Index = () => {
               </div>
               <CardHeader className="relative z-10">
                 <CardTitle className="text-2xl text-white group-hover:text-cyan-400 transition-colors">
-                  Desenvolvimento Web 3.0
+                  Desenvolvimento Web
                 </CardTitle>
                 <CardDescription className="text-white/70 text-base">
-                  Aplicações web revolucionárias com tecnologias de ponta
+                  Sites modernos, responsivos e otimizados para conversão
                 </CardDescription>
               </CardHeader>
               <CardContent className="relative z-10">
                 <ul className="space-y-3 text-white/80 mb-6">
-                  <li className="flex items-center"><Zap className="w-4 h-4 text-cyan-400 mr-3" />PWAs Ultra-Rápidas</li>
-                  <li className="flex items-center"><Shield className="w-4 h-4 text-cyan-400 mr-3" />Segurança Quântica</li>
-                  <li className="flex items-center"><Cloud className="w-4 h-4 text-cyan-400 mr-3" />Cloud Native</li>
-                  <li className="flex items-center"><Cpu className="w-4 h-4 text-cyan-400 mr-3" />IA Integrada</li>
+                  <li className="flex items-center"><CheckCircle className="w-4 h-4 text-cyan-400 mr-3" />Landing Pages</li>
+                  <li className="flex items-center"><CheckCircle className="w-4 h-4 text-cyan-400 mr-3" />E-commerce</li>
+                  <li className="flex items-center"><CheckCircle className="w-4 h-4 text-cyan-400 mr-3" />Aplicações Web</li>
+                  <li className="flex items-center"><CheckCircle className="w-4 h-4 text-cyan-400 mr-3" />SEO Otimizado</li>
                 </ul>
                 <Button className="w-full futuristic-btn bg-gradient-to-r from-cyan-500 to-blue-600">
-                  Explorar Tecnologia
+                  Saiba Mais
                 </Button>
               </CardContent>
             </Card>
@@ -237,7 +238,7 @@ const Index = () => {
               <div className="relative h-56 overflow-hidden rounded-t-lg">
                 <img 
                   src="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800" 
-                  alt="Inteligência Artificial Avançada"
+                  alt="Inteligência Artificial - Robot e tecnologia futurística"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-purple-900/60 via-transparent to-transparent"></div>
@@ -249,18 +250,18 @@ const Index = () => {
               </div>
               <CardHeader className="relative z-10">
                 <CardTitle className="text-2xl text-white group-hover:text-purple-400 transition-colors">
-                  IA Superinteligente
+                  Agentes de IA
                 </CardTitle>
                 <CardDescription className="text-white/70 text-base">
-                  Agentes autônomos que revolucionam processos empresariais
+                  Automatize processos e melhore a experiência do cliente
                 </CardDescription>
               </CardHeader>
               <CardContent className="relative z-10">
                 <ul className="space-y-3 text-white/80 mb-6">
-                  <li className="flex items-center"><Bot className="w-4 h-4 text-purple-400 mr-3" />Agentes Neurais</li>
-                  <li className="flex items-center"><Database className="w-4 h-4 text-purple-400 mr-3" />Machine Learning</li>
-                  <li className="flex items-center"><Zap className="w-4 h-4 text-purple-400 mr-3" />Automação Total</li>
-                  <li className="flex items-center"><Star className="w-4 h-4 text-purple-400 mr-3" />Predição Avançada</li>
+                  <li className="flex items-center"><CheckCircle className="w-4 h-4 text-purple-400 mr-3" />Chatbots Inteligentes</li>
+                  <li className="flex items-center"><CheckCircle className="w-4 h-4 text-purple-400 mr-3" />Automação de Vendas</li>
+                  <li className="flex items-center"><CheckCircle className="w-4 h-4 text-purple-400 mr-3" />Análise de Dados</li>
+                  <li className="flex items-center"><CheckCircle className="w-4 h-4 text-purple-400 mr-3" />Suporte 24/7</li>
                 </ul>
                 <Button className="w-full futuristic-btn bg-gradient-to-r from-purple-500 to-pink-600">
                   Descobrir IA
@@ -274,7 +275,7 @@ const Index = () => {
               <div className="relative h-56 overflow-hidden rounded-t-lg">
                 <img 
                   src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800" 
-                  alt="Consultoria Tecnológica Estratégica"
+                  alt="Consultoria Tecnológica - Reunião de negócios e estratégia"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-emerald-900/60 via-transparent to-transparent"></div>
@@ -286,21 +287,21 @@ const Index = () => {
               </div>
               <CardHeader className="relative z-10">
                 <CardTitle className="text-2xl text-white group-hover:text-emerald-400 transition-colors">
-                  Consultoria Quântica
+                  Consultoria Tech
                 </CardTitle>
                 <CardDescription className="text-white/70 text-base">
-                  Estratégias disruptivas para transformação digital completa
+                  Estratégia e orientação para sua transformação digital
                 </CardDescription>
               </CardHeader>
               <CardContent className="relative z-10">
                 <ul className="space-y-3 text-white/80 mb-6">
-                  <li className="flex items-center"><Rocket className="w-4 h-4 text-emerald-400 mr-3" />Inovação Disruptiva</li>
-                  <li className="flex items-center"><Shield className="w-4 h-4 text-emerald-400 mr-3" />Segurança Avançada</li>
-                  <li className="flex items-center"><Cpu className="w-4 h-4 text-emerald-400 mr-3" />Otimização IA</li>
-                  <li className="flex items-center"><Star className="w-4 h-4 text-emerald-400 mr-3" />ROI Exponencial</li>
+                  <li className="flex items-center"><CheckCircle className="w-4 h-4 text-emerald-400 mr-3" />Diagnóstico Tecnológico</li>
+                  <li className="flex items-center"><CheckCircle className="w-4 h-4 text-emerald-400 mr-3" />Planejamento Digital</li>
+                  <li className="flex items-center"><CheckCircle className="w-4 h-4 text-emerald-400 mr-3" />Otimização de Processos</li>
+                  <li className="flex items-center"><CheckCircle className="w-4 h-4 text-emerald-400 mr-3" />Treinamento da Equipe</li>
                 </ul>
                 <Button className="w-full futuristic-btn bg-gradient-to-r from-emerald-500 to-teal-600">
-                  Transformar Negócio
+                  Consultoria
                 </Button>
               </CardContent>
             </Card>
@@ -313,12 +314,11 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto text-center">
             <h2 className="text-5xl md:text-6xl font-bold text-white mb-12">
-              Por que <span className="holographic-text">DelFiol Tech</span>?
+              Por que escolher a <span className="holographic-text">DelFiol Tech</span>?
             </h2>
             <p className="text-xl text-white/80 mb-16 max-w-4xl mx-auto leading-relaxed">
-              Somos pioneiros em democratizar tecnologias exponenciais. Nossa missão é transformar 
-              pequenas e médias empresas em gigantes tecnológicos através de soluções que antes 
-              eram exclusivas das Big Techs.
+              Somos uma empresa familiar focada em democratizar o acesso às melhores tecnologias. 
+              Nossa missão é oferecer soluções profissionais e acessíveis que antes eram exclusivas das grandes corporações.
             </p>
             
             <div className="grid md:grid-cols-3 gap-8 mt-20">
@@ -327,10 +327,10 @@ const Index = () => {
                   <Users className="w-10 h-10 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-cyan-400 transition-colors">
-                  Atendimento Humano+
+                  Atendimento Familiar
                 </h3>
                 <p className="text-white/70 leading-relaxed">
-                  Relacionamento próximo potencializado por IA para experiência personalizada única
+                  Relacionamento próximo e personalizado com cada cliente
                 </p>
               </div>
               
@@ -339,22 +339,22 @@ const Index = () => {
                   <Star className="w-10 h-10 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-purple-400 transition-colors">
-                  Qualidade Exponencial
+                  Soluções Premium
                 </h3>
                 <p className="text-white/70 leading-relaxed">
-                  Padrão enterprise com preços disruptivos e resultados que superam expectativas
+                  Qualidade profissional com preços acessíveis
                 </p>
               </div>
               
               <div className="glass rounded-2xl p-8 modern-hover group">
                 <div className="w-20 h-20 bg-gradient-to-r from-emerald-400 to-teal-500 rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse-glow group-hover:animate-float">
-                  <Rocket className="w-10 h-10 text-white" />
+                  <Code className="w-10 h-10 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-emerald-400 transition-colors">
-                  Inovação Contínua
+                  Expertise Técnica
                 </h3>
                 <p className="text-white/70 leading-relaxed">
-                  Equipe especializada em tecnologias emergentes e tendências futuras
+                  Equipe especializada em tecnologias modernas
                 </p>
               </div>
             </div>
@@ -367,10 +367,10 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-20">
             <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">
-              Nossos <span className="holographic-text">Visionários</span>
+              Nossa <span className="holographic-text">Equipe</span>
             </h2>
             <p className="text-xl text-white/70 max-w-3xl mx-auto">
-              Conheça os arquitetos do futuro por trás da DelFiol Tech
+              Conheça os profissionais por trás da DelFiol Tech
             </p>
           </div>
           
@@ -385,13 +385,13 @@ const Index = () => {
                   Flavio Del Fiol Costa
                 </CardTitle>
                 <CardDescription className="text-cyan-400 font-semibold text-lg">
-                  Chief Technology Officer
+                  CTO Freelancer
                 </CardDescription>
               </CardHeader>
               <CardContent className="text-center">
                 <p className="text-white/80 mb-6 leading-relaxed">
-                  Visionário full stack com expertise em resolver problemas complexos através de tecnologia exponencial. 
-                  Engenheiro com pós em sistemas e psicologia transpessoal.
+                  Experiência full stack com foco na solução de problemas através da tecnologia. 
+                  Formado em engenharia, pós-graduado em análise e auditoria de sistemas e em psicologia transpessoal.
                 </p>
                 <Button 
                   variant="outline" 
@@ -399,65 +399,65 @@ const Index = () => {
                   onClick={() => openLinkedIn("https://www.linkedin.com/in/flaviodfc/")}
                 >
                   <Linkedin className="w-4 h-4 mr-2" />
-                  Conectar
-                </Button>
-              </CardContent>
-            </Card>
-
-            {/* Paula */}
-            <Card className="glass border-purple-400/20 hover:border-purple-400/50 modern-hover group overflow-hidden">
-              <CardHeader className="text-center relative">
-                <div className="w-32 h-32 bg-gradient-to-r from-purple-400 to-pink-500 rounded-full mx-auto mb-6 flex items-center justify-center text-white text-3xl font-bold animate-pulse-glow group-hover:animate-float">
-                  PC
-                </div>
-                <CardTitle className="text-2xl text-white group-hover:text-purple-400 transition-colors">
-                  Paula Del Fiol Costa
-                </CardTitle>
-                <CardDescription className="text-purple-400 font-semibold text-lg">
-                  Chief Creative Officer
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="text-center">
-                <p className="text-white/80 mb-6 leading-relaxed">
-                  Mente criativa revolucionária especializada em experiências imersivas. 
-                  Cosplay artist, prop maker e estrategista de marketing com visão futurista.
-                </p>
-                <Button 
-                  variant="outline" 
-                  className="w-full glass border-purple-400/50 text-purple-400 hover:bg-purple-400/10"
-                  onClick={() => openLinkedIn("https://www.linkedin.com/in/pauladelfiol/")}
-                >
-                  <Linkedin className="w-4 h-4 mr-2" />
-                  Conectar
+                  LinkedIn
                 </Button>
               </CardContent>
             </Card>
 
             {/* Lucas */}
-            <Card className="glass border-emerald-400/20 hover:border-emerald-400/50 modern-hover group overflow-hidden">
+            <Card className="glass border-purple-400/20 hover:border-purple-400/50 modern-hover group overflow-hidden">
               <CardHeader className="text-center relative">
-                <div className="w-32 h-32 bg-gradient-to-r from-emerald-400 to-teal-500 rounded-full mx-auto mb-6 flex items-center justify-center text-white text-3xl font-bold animate-pulse-glow group-hover:animate-float">
+                <div className="w-32 h-32 bg-gradient-to-r from-purple-400 to-pink-500 rounded-full mx-auto mb-6 flex items-center justify-center text-white text-3xl font-bold animate-pulse-glow group-hover:animate-float">
                   LC
                 </div>
-                <CardTitle className="text-2xl text-white group-hover:text-emerald-400 transition-colors">
+                <CardTitle className="text-2xl text-white group-hover:text-purple-400 transition-colors">
                   Lucas Del Fiol Costa
                 </CardTitle>
-                <CardDescription className="text-emerald-400 font-semibold text-lg">
-                  Senior Software Architect
+                <CardDescription className="text-purple-400 font-semibold text-lg">
+                  Engenheiro de Software
                 </CardDescription>
               </CardHeader>
               <CardContent className="text-center">
                 <p className="text-white/80 mb-6 leading-relaxed">
-                  Arquiteto de software formado em engenharia eletrônica pela POLI e técnico em mecatrônica. 
-                  Especialista em soluções tecnológicas disruptivas.
+                  Formado em engenharia eletrônica pela POLI e técnico em mecatrônica pela ETEC. 
+                  Especialista em desenvolvimento de soluções tecnológicas inovadoras.
+                </p>
+                <Button 
+                  variant="outline" 
+                  className="w-full glass border-purple-400/50 text-purple-400 hover:bg-purple-400/10"
+                  onClick={() => openLinkedIn("https://www.linkedin.com/in/lucasdelfiol/")}
+                >
+                  <Linkedin className="w-4 h-4 mr-2" />
+                  LinkedIn
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* Paula */}
+            <Card className="glass border-emerald-400/20 hover:border-emerald-400/50 modern-hover group overflow-hidden">
+              <CardHeader className="text-center relative">
+                <div className="w-32 h-32 bg-gradient-to-r from-emerald-400 to-teal-500 rounded-full mx-auto mb-6 flex items-center justify-center text-white text-3xl font-bold animate-pulse-glow group-hover:animate-float">
+                  PC
+                </div>
+                <CardTitle className="text-2xl text-white group-hover:text-emerald-400 transition-colors">
+                  Paula Del Fiol Costa
+                </CardTitle>
+                <CardDescription className="text-emerald-400 font-semibold text-lg">
+                  Creative Director
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="text-center">
+                <p className="text-white/80 mb-6 leading-relaxed">
+                  Mente criativa responsável pela criação e execução de projetos. 
+                  Cosplay e prop maker, marketing manager formada em administração.
                 </p>
                 <Button 
                   variant="outline" 
                   className="w-full glass border-emerald-400/50 text-emerald-400 hover:bg-emerald-400/10"
-                  onClick={() => openLinkedIn("https://www.linkedin.com/in/lucasdelfiol/")}
+                  onClick={() => openLinkedIn("https://www.linkedin.com/in/pauladelfiol/")}
                 >
                   <Linkedin className="w-4 h-4 mr-2" />
-                  Conectar
+                  LinkedIn
                 </Button>
               </CardContent>
             </Card>
@@ -470,20 +470,19 @@ const Index = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-cyan-600/20 via-purple-600/20 to-pink-600/20"></div>
         <div className="container mx-auto px-4 text-center relative z-10">
           <h2 className="text-5xl md:text-6xl font-bold text-white mb-8">
-            Pronto para o <span className="holographic-text">Futuro</span>?
+            Pronto para Transformar seu <span className="holographic-text">Negócio</span>?
           </h2>
           <p className="text-xl text-white/80 mb-12 max-w-3xl mx-auto leading-relaxed">
-            Junte-se à revolução tecnológica e transforme sua empresa em uma potência digital. 
-            O futuro começa agora.
+            Entre em contato conosco e descubra como podemos ajudar sua empresa a alcançar novos patamares com tecnologia de ponta.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <Button size="lg" className="futuristic-btn bg-gradient-to-r from-cyan-500 via-purple-600 to-pink-500 text-xl px-12 py-8 rounded-2xl" onClick={openWhatsApp}>
               <MessageCircle className="mr-3 w-6 h-6" />
-              Iniciar Transformação
+              Falar no WhatsApp
             </Button>
             <Button size="lg" variant="outline" className="glass border-white/30 text-white hover:bg-white/10 text-xl px-12 py-8 rounded-2xl" onClick={openEmail}>
               <Mail className="mr-3 w-6 h-6" />
-              Contato Estratégico
+              Enviar E-mail
             </Button>
           </div>
         </div>
@@ -495,21 +494,21 @@ const Index = () => {
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-20">
               <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">
-                Conecte-se ao <span className="holographic-text">Futuro</span>
+                Entre em <span className="holographic-text">Contato</span>
               </h2>
-              <p className="text-xl text-white/70">Vamos co-criar o amanhã do seu negócio</p>
+              <p className="text-xl text-white/70">Vamos conversar sobre seu projeto</p>
             </div>
             
             <div className="grid md:grid-cols-2 gap-12">
               <div className="glass rounded-2xl p-8">
-                <h3 className="text-3xl font-bold text-white mb-8">Canais Diretos</h3>
+                <h3 className="text-3xl font-bold text-white mb-8">Fale Conosco</h3>
                 <div className="space-y-6">
                   <div className="flex items-center space-x-4 group cursor-pointer" onClick={openWhatsApp}>
                     <div className="w-12 h-12 bg-gradient-to-r from-green-400 to-emerald-500 rounded-full flex items-center justify-center animate-pulse-glow">
                       <MessageCircle className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <div className="text-white font-semibold group-hover:text-green-400 transition-colors">WhatsApp Direto</div>
+                      <div className="text-white font-semibold group-hover:text-green-400 transition-colors">WhatsApp</div>
                       <div className="text-white/70">(11) 91977-6155</div>
                     </div>
                   </div>
@@ -518,8 +517,8 @@ const Index = () => {
                       <Mail className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <div className="text-white font-semibold group-hover:text-blue-400 transition-colors">Email Estratégico</div>
-                      <div className="text-white/70">flaviodfc@gmail.com</div>
+                      <div className="text-white font-semibold group-hover:text-blue-400 transition-colors">E-mail</div>
+                      <div className="text-white/70">contato@delfioltech.com</div>
                     </div>
                   </div>
                 </div>
@@ -538,7 +537,7 @@ const Index = () => {
               </div>
               
               <form onSubmit={handleSubmit} className="glass rounded-2xl p-8 space-y-6">
-                <h3 className="text-3xl font-bold text-white mb-8">Mensagem Quântica</h3>
+                <h3 className="text-3xl font-bold text-white mb-8">Envie sua Mensagem</h3>
                 <div>
                   <Input
                     type="text"
@@ -577,7 +576,7 @@ const Index = () => {
                 <div>
                   <Textarea
                     name="message"
-                    placeholder="Como podemos revolucionar seu negócio? *"
+                    placeholder="Como podemos ajudar você? *"
                     value={formData.message}
                     onChange={handleInputChange}
                     required
@@ -593,17 +592,17 @@ const Index = () => {
                   {isSubmitting ? (
                     <>
                       <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-                      Transmitindo...
+                      Enviando...
                     </>
                   ) : (
                     <>
                       <Rocket className="mr-2 h-5 w-5" />
-                      Enviar ao Futuro
+                      Enviar Mensagem
                     </>
                   )}
                 </Button>
                 <p className="text-sm text-white/50 text-center">
-                  * Campos obrigatórios para conexão quântica
+                  * Campos obrigatórios
                 </p>
               </form>
             </div>
@@ -621,7 +620,7 @@ const Index = () => {
             <span className="text-3xl font-bold holographic-text">DelFiol Tech</span>
           </div>
           <p className="text-white/70 mb-8 text-lg">
-            Democratizando tecnologias exponenciais para empresas visionárias
+            Democratizando o acesso à tecnologia para pequenas e médias empresas
           </p>
           <div className="flex justify-center space-x-6 mb-8">
             <Button variant="ghost" className="text-white/60 hover:text-cyan-400">
@@ -632,7 +631,7 @@ const Index = () => {
             </Button>
           </div>
           <p className="text-white/50">
-            © 2025 DelFiol Tech. Todos os direitos reservados. Construindo o futuro, hoje.
+            © 2025 DelFiol Tech. Todos os direitos reservados.
           </p>
         </div>
       </footer>
