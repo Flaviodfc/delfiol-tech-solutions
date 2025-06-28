@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { MessageCircle, Mail, Phone, Facebook, Instagram, Linkedin, Code, Bot, Globe, Users, Briefcase, Star, ArrowRight, CheckCircle, Loader2 } from "lucide-react";
+import { MessageCircle, Mail, Phone, Facebook, Instagram, Linkedin, Code, Bot, Globe, Users, Briefcase, Star, ArrowRight, CheckCircle, Loader2, Zap, Rocket, Shield, Cpu, Database, Cloud } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { sendContactEmail, type ContactFormData } from "@/lib/emailjs";
 
@@ -22,7 +22,6 @@ const Index = () => {
     setIsSubmitting(true);
 
     try {
-      // Validação básica
       if (!formData.name || !formData.email || !formData.message) {
         toast({
           title: "Campos obrigatórios",
@@ -32,7 +31,6 @@ const Index = () => {
         return;
       }
 
-      // Validação de email
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(formData.email)) {
         toast({
@@ -51,7 +49,6 @@ const Index = () => {
           description: "Recebemos sua mensagem e entraremos em contato em breve. Obrigado pelo interesse!"
         });
         
-        // Limpar formulário
         setFormData({
           name: "",
           email: "",
@@ -59,7 +56,6 @@ const Index = () => {
           message: ""
         });
       } else {
-        // Mostrar erro específico retornado pela função sendContactEmail
         toast({
           title: "❌ Erro ao enviar mensagem",
           description: result.error || "Ocorreu um erro ao enviar sua mensagem. Tente novamente ou entre em contato via WhatsApp.",
@@ -98,25 +94,40 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 relative overflow-hidden">
+      {/* Partículas de fundo */}
+      <div className="particles">
+        {[...Array(50)].map((_, i) => (
+          <div
+            key={i}
+            className="particle"
+            style={{
+              left: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 10}s`,
+              animationDuration: `${10 + Math.random() * 10}s`
+            }}
+          />
+        ))}
+      </div>
+
       {/* Header */}
-      <header className="bg-white/80 backdrop-blur-md border-b border-slate-200 sticky top-0 z-50">
+      <header className="glass fixed top-0 w-full z-50 border-b border-white/10">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <div className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-lg flex items-center justify-center">
-              <Code className="w-6 h-6 text-white" />
+          <div className="flex items-center space-x-3">
+            <div className="w-12 h-12 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 rounded-xl flex items-center justify-center animate-pulse-glow">
+              <Code className="w-7 h-7 text-white animate-hologram" />
             </div>
-            <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
+            <span className="text-3xl font-bold holographic-text animate-neon">
               DelFiol Tech
             </span>
           </div>
           <nav className="hidden md:flex space-x-8">
-            <a href="#services" className="text-slate-700 hover:text-blue-600 transition-colors">Serviços</a>
-            <a href="#about" className="text-slate-700 hover:text-blue-600 transition-colors">Sobre</a>
-            <a href="#team" className="text-slate-700 hover:text-blue-600 transition-colors">Equipe</a>
-            <a href="#contact" className="text-slate-700 hover:text-blue-600 transition-colors">Contato</a>
+            <a href="#services" className="text-white/80 hover:text-cyan-400 transition-all duration-300 hover:glow">Serviços</a>
+            <a href="#about" className="text-white/80 hover:text-cyan-400 transition-all duration-300">Sobre</a>
+            <a href="#team" className="text-white/80 hover:text-cyan-400 transition-all duration-300">Equipe</a>
+            <a href="#contact" className="text-white/80 hover:text-cyan-400 transition-all duration-300">Contato</a>
           </nav>
-          <Button onClick={openWhatsApp} className="bg-green-500 hover:bg-green-600">
+          <Button onClick={openWhatsApp} className="futuristic-btn bg-gradient-to-r from-green-400 to-emerald-500 hover:from-green-500 hover:to-emerald-600">
             <MessageCircle className="w-4 h-4 mr-2" />
             WhatsApp
           </Button>
@@ -124,128 +135,172 @@ const Index = () => {
       </header>
 
       {/* Hero Section */}
-      <section className="py-20 px-4">
-        <div className="container mx-auto text-center">
-          <h1 className="text-5xl md:text-6xl font-bold text-slate-800 mb-6 animate-fade-in">
-            Tecnologia <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">Acessível</span> para
-            <br />
-            Pequenas e Médias Empresas
-          </h1>
-          <p className="text-xl text-slate-600 mb-8 max-w-3xl mx-auto">
-            Soluções profissionais em desenvolvimento web, inteligência artificial e consultoria tecnológica. 
-            Democratizando o acesso às tecnologias que antes eram exclusivas das grandes corporações.
+      <section className="pt-32 pb-20 px-4 relative">
+        <div className="container mx-auto text-center relative z-10">
+          <div className="animate-float">
+            <h1 className="text-6xl md:text-8xl font-bold text-white mb-8 leading-tight">
+              Tecnologia <span className="holographic-text animate-gradient">Quântica</span> para
+              <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 animate-gradient">
+                Empresas Visionárias
+              </span>
+            </h1>
+          </div>
+          <p className="text-xl md:text-2xl text-white/80 mb-12 max-w-4xl mx-auto leading-relaxed">
+            Revolucione seu negócio com soluções de <span className="text-cyan-400 font-semibold">IA avançada</span>, 
+            <span className="text-purple-400 font-semibold"> desenvolvimento web futurista</span> e 
+            <span className="text-pink-400 font-semibold"> consultoria tecnológica de ponta</span>
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-lg px-8 py-6">
-              Começar Agora
-              <ArrowRight className="ml-2 w-5 h-5" />
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+            <Button size="lg" className="futuristic-btn bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 hover:from-cyan-400 hover:via-blue-500 hover:to-purple-500 text-xl px-12 py-8 rounded-2xl transform hover:scale-105 transition-all duration-300">
+              <Rocket className="mr-3 w-6 h-6" />
+              Iniciar Jornada
+              <ArrowRight className="ml-3 w-6 h-6" />
             </Button>
-            <Button size="lg" variant="outline" className="text-lg px-8 py-6" onClick={openWhatsApp}>
-              Falar no WhatsApp
-              <MessageCircle className="ml-2 w-5 h-5" />
+            <Button size="lg" variant="outline" className="glass border-cyan-400/50 text-cyan-400 hover:bg-cyan-400/10 text-xl px-12 py-8 rounded-2xl" onClick={openWhatsApp}>
+              <MessageCircle className="mr-3 w-6 h-6" />
+              Contato Direto
             </Button>
+          </div>
+          
+          {/* Stats */}
+          <div className="grid md:grid-cols-3 gap-8 mt-20 max-w-4xl mx-auto">
+            <div className="glass rounded-2xl p-6 modern-hover">
+              <div className="text-4xl font-bold holographic-text">100+</div>
+              <div className="text-white/70">Projetos Entregues</div>
+            </div>
+            <div className="glass rounded-2xl p-6 modern-hover">
+              <div className="text-4xl font-bold holographic-text">24/7</div>
+              <div className="text-white/70">Suporte Disponível</div>
+            </div>
+            <div className="glass rounded-2xl p-6 modern-hover">
+              <div className="text-4xl font-bold holographic-text">99%</div>
+              <div className="text-white/70">Satisfação Cliente</div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-20 bg-white/50">
+      <section id="services" className="py-20 relative">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-slate-800 mb-4">Nossos Serviços</h2>
-            <p className="text-xl text-slate-600">Soluções completas para acelerar o crescimento do seu negócio</p>
+          <div className="text-center mb-20">
+            <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">
+              Soluções <span className="holographic-text">Futuristas</span>
+            </h2>
+            <p className="text-xl text-white/70 max-w-3xl mx-auto">
+              Tecnologias de próxima geração para acelerar exponencialmente o crescimento do seu negócio
+            </p>
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
-            <Card className="group hover:shadow-xl transition-all duration-300 border-0 bg-gradient-to-br from-blue-50 to-white overflow-hidden">
-              <div className="relative h-48 overflow-hidden">
+            {/* Desenvolvimento Web */}
+            <Card className="group glass border-cyan-400/20 hover:border-cyan-400/50 modern-hover bg-gradient-to-br from-cyan-500/10 to-blue-600/10 overflow-hidden relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/5 to-blue-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="relative h-56 overflow-hidden rounded-t-lg">
                 <img 
                   src="https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=800" 
-                  alt="Desenvolvimento Web - Programador trabalhando em código"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  alt="Desenvolvimento Web Futurista"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-blue-900/20 to-transparent"></div>
-              </div>
-              <CardHeader>
-                <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                  <Globe className="w-6 h-6 text-white" />
+                <div className="absolute inset-0 bg-gradient-to-t from-cyan-900/60 via-transparent to-transparent"></div>
+                <div className="absolute top-4 right-4">
+                  <div className="w-12 h-12 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full flex items-center justify-center animate-pulse-glow">
+                    <Globe className="w-6 h-6 text-white" />
+                  </div>
                 </div>
-                <CardTitle className="text-2xl">Desenvolvimento Web</CardTitle>
-                <CardDescription className="text-base">
-                  Sites modernos, responsivos e otimizados para conversão
+              </div>
+              <CardHeader className="relative z-10">
+                <CardTitle className="text-2xl text-white group-hover:text-cyan-400 transition-colors">
+                  Desenvolvimento Web 3.0
+                </CardTitle>
+                <CardDescription className="text-white/70 text-base">
+                  Aplicações web revolucionárias com tecnologias de ponta
                 </CardDescription>
               </CardHeader>
-              <CardContent>
-                <ul className="space-y-2 text-slate-600">
-                  <li className="flex items-center"><CheckCircle className="w-4 h-4 text-green-500 mr-2" />Landing Pages</li>
-                  <li className="flex items-center"><CheckCircle className="w-4 h-4 text-green-500 mr-2" />E-commerce</li>
-                  <li className="flex items-center"><CheckCircle className="w-4 h-4 text-green-500 mr-2" />Aplicações Web</li>
-                  <li className="flex items-center"><CheckCircle className="w-4 h-4 text-green-500 mr-2" />SEO Otimizado</li>
+              <CardContent className="relative z-10">
+                <ul className="space-y-3 text-white/80 mb-6">
+                  <li className="flex items-center"><Zap className="w-4 h-4 text-cyan-400 mr-3" />PWAs Ultra-Rápidas</li>
+                  <li className="flex items-center"><Shield className="w-4 h-4 text-cyan-400 mr-3" />Segurança Quântica</li>
+                  <li className="flex items-center"><Cloud className="w-4 h-4 text-cyan-400 mr-3" />Cloud Native</li>
+                  <li className="flex items-center"><Cpu className="w-4 h-4 text-cyan-400 mr-3" />IA Integrada</li>
                 </ul>
-                <Button className="w-full mt-6 bg-gradient-to-r from-blue-600 to-cyan-500">
-                  Saiba Mais
+                <Button className="w-full futuristic-btn bg-gradient-to-r from-cyan-500 to-blue-600">
+                  Explorar Tecnologia
                 </Button>
               </CardContent>
             </Card>
 
-            <Card className="group hover:shadow-xl transition-all duration-300 border-0 bg-gradient-to-br from-purple-50 to-white overflow-hidden">
-              <div className="relative h-48 overflow-hidden">
+            {/* IA */}
+            <Card className="group glass border-purple-400/20 hover:border-purple-400/50 modern-hover bg-gradient-to-br from-purple-500/10 to-pink-600/10 overflow-hidden relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-400/5 to-pink-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="relative h-56 overflow-hidden rounded-t-lg">
                 <img 
                   src="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800" 
-                  alt="Inteligência Artificial - Robot e tecnologia futurística"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  alt="Inteligência Artificial Avançada"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-purple-900/20 to-transparent"></div>
-              </div>
-              <CardHeader>
-                <div className="w-12 h-12 bg-gradient-to-r from-purple-600 to-pink-500 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                  <Bot className="w-6 h-6 text-white" />
+                <div className="absolute inset-0 bg-gradient-to-t from-purple-900/60 via-transparent to-transparent"></div>
+                <div className="absolute top-4 right-4">
+                  <div className="w-12 h-12 bg-gradient-to-r from-purple-400 to-pink-500 rounded-full flex items-center justify-center animate-pulse-glow">
+                    <Bot className="w-6 h-6 text-white animate-hologram" />
+                  </div>
                 </div>
-                <CardTitle className="text-2xl">Agentes de IA</CardTitle>
-                <CardDescription className="text-base">
-                  Automatize processos e melhore a experiência do cliente
+              </div>
+              <CardHeader className="relative z-10">
+                <CardTitle className="text-2xl text-white group-hover:text-purple-400 transition-colors">
+                  IA Superinteligente
+                </CardTitle>
+                <CardDescription className="text-white/70 text-base">
+                  Agentes autônomos que revolucionam processos empresariais
                 </CardDescription>
               </CardHeader>
-              <CardContent>
-                <ul className="space-y-2 text-slate-600">
-                  <li className="flex items-center"><CheckCircle className="w-4 h-4 text-green-500 mr-2" />Chatbots Inteligentes</li>
-                  <li className="flex items-center"><CheckCircle className="w-4 h-4 text-green-500 mr-2" />Automação de Vendas</li>
-                  <li className="flex items-center"><CheckCircle className="w-4 h-4 text-green-500 mr-2" />Análise de Dados</li>
-                  <li className="flex items-center"><CheckCircle className="w-4 h-4 text-green-500 mr-2" />Suporte 24/7</li>
+              <CardContent className="relative z-10">
+                <ul className="space-y-3 text-white/80 mb-6">
+                  <li className="flex items-center"><Bot className="w-4 h-4 text-purple-400 mr-3" />Agentes Neurais</li>
+                  <li className="flex items-center"><Database className="w-4 h-4 text-purple-400 mr-3" />Machine Learning</li>
+                  <li className="flex items-center"><Zap className="w-4 h-4 text-purple-400 mr-3" />Automação Total</li>
+                  <li className="flex items-center"><Star className="w-4 h-4 text-purple-400 mr-3" />Predição Avançada</li>
                 </ul>
-                <Button className="w-full mt-6 bg-gradient-to-r from-purple-600 to-pink-500">
+                <Button className="w-full futuristic-btn bg-gradient-to-r from-purple-500 to-pink-600">
                   Descobrir IA
                 </Button>
               </CardContent>
             </Card>
 
-            <Card className="group hover:shadow-xl transition-all duration-300 border-0 bg-gradient-to-br from-green-50 to-white overflow-hidden">
-              <div className="relative h-48 overflow-hidden">
+            {/* Consultoria */}
+            <Card className="group glass border-emerald-400/20 hover:border-emerald-400/50 modern-hover bg-gradient-to-br from-emerald-500/10 to-teal-600/10 overflow-hidden relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-emerald-400/5 to-teal-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="relative h-56 overflow-hidden rounded-t-lg">
                 <img 
                   src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800" 
-                  alt="Consultoria Tecnológica - Reunião de negócios e estratégia"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  alt="Consultoria Tecnológica Estratégica"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-green-900/20 to-transparent"></div>
-              </div>
-              <CardHeader>
-                <div className="w-12 h-12 bg-gradient-to-r from-green-600 to-emerald-500 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                  <Briefcase className="w-6 h-6 text-white" />
+                <div className="absolute inset-0 bg-gradient-to-t from-emerald-900/60 via-transparent to-transparent"></div>
+                <div className="absolute top-4 right-4">
+                  <div className="w-12 h-12 bg-gradient-to-r from-emerald-400 to-teal-500 rounded-full flex items-center justify-center animate-pulse-glow">
+                    <Briefcase className="w-6 h-6 text-white" />
+                  </div>
                 </div>
-                <CardTitle className="text-2xl">Consultoria Tech</CardTitle>
-                <CardDescription className="text-base">
-                  Estratégia e orientação para sua transformação digital
+              </div>
+              <CardHeader className="relative z-10">
+                <CardTitle className="text-2xl text-white group-hover:text-emerald-400 transition-colors">
+                  Consultoria Quântica
+                </CardTitle>
+                <CardDescription className="text-white/70 text-base">
+                  Estratégias disruptivas para transformação digital completa
                 </CardDescription>
               </CardHeader>
-              <CardContent>
-                <ul className="space-y-2 text-slate-600">
-                  <li className="flex items-center"><CheckCircle className="w-4 h-4 text-green-500 mr-2" />Diagnóstico Tecnológico</li>
-                  <li className="flex items-center"><CheckCircle className="w-4 h-4 text-green-500 mr-2" />Planejamento Digital</li>
-                  <li className="flex items-center"><CheckCircle className="w-4 h-4 text-green-500 mr-2" />Otimização de Processos</li>
-                  <li className="flex items-center"><CheckCircle className="w-4 h-4 text-green-500 mr-2" />Treinamento da Equipe</li>
+              <CardContent className="relative z-10">
+                <ul className="space-y-3 text-white/80 mb-6">
+                  <li className="flex items-center"><Rocket className="w-4 h-4 text-emerald-400 mr-3" />Inovação Disruptiva</li>
+                  <li className="flex items-center"><Shield className="w-4 h-4 text-emerald-400 mr-3" />Segurança Avançada</li>
+                  <li className="flex items-center"><Cpu className="w-4 h-4 text-emerald-400 mr-3" />Otimização IA</li>
+                  <li className="flex items-center"><Star className="w-4 h-4 text-emerald-400 mr-3" />ROI Exponencial</li>
                 </ul>
-                <Button className="w-full mt-6 bg-gradient-to-r from-green-600 to-emerald-500">
-                  Consultoria
+                <Button className="w-full futuristic-btn bg-gradient-to-r from-emerald-500 to-teal-600">
+                  Transformar Negócio
                 </Button>
               </CardContent>
             </Card>
@@ -254,38 +309,53 @@ const Index = () => {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20">
+      <section id="about" className="py-20 relative">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl font-bold text-slate-800 mb-8">Por que escolher a DelFiol Tech?</h2>
-            <p className="text-xl text-slate-600 mb-12">
-              Somos uma empresa familiar focada em democratizar o acesso às melhores tecnologias. 
-              Nossa missão é oferecer soluções profissionais e acessíveis que antes eram exclusivas das grandes corporações.
+          <div className="max-w-6xl mx-auto text-center">
+            <h2 className="text-5xl md:text-6xl font-bold text-white mb-12">
+              Por que <span className="holographic-text">DelFiol Tech</span>?
+            </h2>
+            <p className="text-xl text-white/80 mb-16 max-w-4xl mx-auto leading-relaxed">
+              Somos pioneiros em democratizar tecnologias exponenciais. Nossa missão é transformar 
+              pequenas e médias empresas em gigantes tecnológicos através de soluções que antes 
+              eram exclusivas das Big Techs.
             </p>
             
-            <div className="grid md:grid-cols-3 gap-8 mt-16">
-              <div className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Users className="w-8 h-8 text-white" />
+            <div className="grid md:grid-cols-3 gap-8 mt-20">
+              <div className="glass rounded-2xl p-8 modern-hover group">
+                <div className="w-20 h-20 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse-glow group-hover:animate-float">
+                  <Users className="w-10 h-10 text-white" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2">Atendimento Familiar</h3>
-                <p className="text-slate-600">Relacionamento próximo e personalizado com cada cliente</p>
+                <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-cyan-400 transition-colors">
+                  Atendimento Humano+
+                </h3>
+                <p className="text-white/70 leading-relaxed">
+                  Relacionamento próximo potencializado por IA para experiência personalizada única
+                </p>
               </div>
               
-              <div className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-r from-green-600 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Star className="w-8 h-8 text-white" />
+              <div className="glass rounded-2xl p-8 modern-hover group">
+                <div className="w-20 h-20 bg-gradient-to-r from-purple-400 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse-glow group-hover:animate-float">
+                  <Star className="w-10 h-10 text-white" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2">Soluções Premium</h3>
-                <p className="text-slate-600">Qualidade profissional com preços acessíveis</p>
+                <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-purple-400 transition-colors">
+                  Qualidade Exponencial
+                </h3>
+                <p className="text-white/70 leading-relaxed">
+                  Padrão enterprise com preços disruptivos e resultados que superam expectativas
+                </p>
               </div>
               
-              <div className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-r from-purple-600 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Code className="w-8 h-8 text-white" />
+              <div className="glass rounded-2xl p-8 modern-hover group">
+                <div className="w-20 h-20 bg-gradient-to-r from-emerald-400 to-teal-500 rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse-glow group-hover:animate-float">
+                  <Rocket className="w-10 h-10 text-white" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2">Expertise Técnica</h3>
-                <p className="text-slate-600">Equipe especializada em tecnologias modernas</p>
+                <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-emerald-400 transition-colors">
+                  Inovação Contínua
+                </h3>
+                <p className="text-white/70 leading-relaxed">
+                  Equipe especializada em tecnologias emergentes e tendências futuras
+                </p>
               </div>
             </div>
           </div>
@@ -293,88 +363,101 @@ const Index = () => {
       </section>
 
       {/* Team Section */}
-      <section id="team" className="py-20 bg-white/50">
+      <section id="team" className="py-20 relative">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-slate-800 mb-4">Nossa Equipe</h2>
-            <p className="text-xl text-slate-600">Conheça os profissionais por trás da DelFiol Tech</p>
+          <div className="text-center mb-20">
+            <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">
+              Nossos <span className="holographic-text">Visionários</span>
+            </h2>
+            <p className="text-xl text-white/70 max-w-3xl mx-auto">
+              Conheça os arquitetos do futuro por trás da DelFiol Tech
+            </p>
           </div>
           
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {/* Flavio - Primeira posição */}
-            <Card className="text-center hover:shadow-xl transition-all duration-300 border-0 bg-gradient-to-br from-blue-50 to-white">
-              <CardHeader>
-                <div className="w-24 h-24 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-2xl font-bold">
+            {/* Flavio */}
+            <Card className="glass border-cyan-400/20 hover:border-cyan-400/50 modern-hover group overflow-hidden">
+              <CardHeader className="text-center relative">
+                <div className="w-32 h-32 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full mx-auto mb-6 flex items-center justify-center text-white text-3xl font-bold animate-pulse-glow group-hover:animate-float">
                   FC
                 </div>
-                <CardTitle className="text-xl">Flavio Del Fiol Costa</CardTitle>
-                <CardDescription className="text-blue-600 font-medium">CTO Freelancer</CardDescription>
+                <CardTitle className="text-2xl text-white group-hover:text-cyan-400 transition-colors">
+                  Flavio Del Fiol Costa
+                </CardTitle>
+                <CardDescription className="text-cyan-400 font-semibold text-lg">
+                  Chief Technology Officer
+                </CardDescription>
               </CardHeader>
-              <CardContent>
-                <p className="text-slate-600 mb-4">
-                  Experiência full stack com foco na solução de problemas através da tecnologia. 
-                  Formado em engenharia, pós-graduado em análise e auditoria de sistemas e em psicologia transpessoal.
+              <CardContent className="text-center">
+                <p className="text-white/80 mb-6 leading-relaxed">
+                  Visionário full stack com expertise em resolver problemas complexos através de tecnologia exponencial. 
+                  Engenheiro com pós em sistemas e psicologia transpessoal.
                 </p>
                 <Button 
                   variant="outline" 
-                  size="sm" 
-                  className="w-full hover:bg-blue-50 hover:border-blue-300"
+                  className="w-full glass border-cyan-400/50 text-cyan-400 hover:bg-cyan-400/10"
                   onClick={() => openLinkedIn("https://www.linkedin.com/in/flaviodfc/")}
                 >
                   <Linkedin className="w-4 h-4 mr-2" />
-                  LinkedIn
+                  Conectar
                 </Button>
               </CardContent>
             </Card>
 
-            {/* Paula - Segunda posição (cores do Lucas) */}
-            <Card className="text-center hover:shadow-xl transition-all duration-300 border-0 bg-gradient-to-br from-purple-50 to-white">
-              <CardHeader>
-                <div className="w-24 h-24 bg-gradient-to-r from-purple-600 to-pink-500 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-2xl font-bold">
+            {/* Paula */}
+            <Card className="glass border-purple-400/20 hover:border-purple-400/50 modern-hover group overflow-hidden">
+              <CardHeader className="text-center relative">
+                <div className="w-32 h-32 bg-gradient-to-r from-purple-400 to-pink-500 rounded-full mx-auto mb-6 flex items-center justify-center text-white text-3xl font-bold animate-pulse-glow group-hover:animate-float">
                   PC
                 </div>
-                <CardTitle className="text-xl">Paula Del Fiol Costa</CardTitle>
-                <CardDescription className="text-purple-600 font-medium">Creative Director</CardDescription>
+                <CardTitle className="text-2xl text-white group-hover:text-purple-400 transition-colors">
+                  Paula Del Fiol Costa
+                </CardTitle>
+                <CardDescription className="text-purple-400 font-semibold text-lg">
+                  Chief Creative Officer
+                </CardDescription>
               </CardHeader>
-              <CardContent>
-                <p className="text-slate-600 mb-4">
-                  Mente criativa responsável pela criação e execução de projetos. 
-                  Cosplay e prop maker, marketing manager formada em administração.
+              <CardContent className="text-center">
+                <p className="text-white/80 mb-6 leading-relaxed">
+                  Mente criativa revolucionária especializada em experiências imersivas. 
+                  Cosplay artist, prop maker e estrategista de marketing com visão futurista.
                 </p>
                 <Button 
                   variant="outline" 
-                  size="sm" 
-                  className="w-full hover:bg-purple-50 hover:border-purple-300"
+                  className="w-full glass border-purple-400/50 text-purple-400 hover:bg-purple-400/10"
                   onClick={() => openLinkedIn("https://www.linkedin.com/in/pauladelfiol/")}
                 >
                   <Linkedin className="w-4 h-4 mr-2" />
-                  LinkedIn
+                  Conectar
                 </Button>
               </CardContent>
             </Card>
 
-            {/* Lucas - Terceira posição (cores da Paula) */}
-            <Card className="text-center hover:shadow-xl transition-all duration-300 border-0 bg-gradient-to-br from-green-50 to-white">
-              <CardHeader>
-                <div className="w-24 h-24 bg-gradient-to-r from-green-600 to-emerald-500 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-2xl font-bold">
+            {/* Lucas */}
+            <Card className="glass border-emerald-400/20 hover:border-emerald-400/50 modern-hover group overflow-hidden">
+              <CardHeader className="text-center relative">
+                <div className="w-32 h-32 bg-gradient-to-r from-emerald-400 to-teal-500 rounded-full mx-auto mb-6 flex items-center justify-center text-white text-3xl font-bold animate-pulse-glow group-hover:animate-float">
                   LC
                 </div>
-                <CardTitle className="text-xl">Lucas Del Fiol Costa</CardTitle>
-                <CardDescription className="text-green-600 font-medium">Engenheiro de Software</CardDescription>
+                <CardTitle className="text-2xl text-white group-hover:text-emerald-400 transition-colors">
+                  Lucas Del Fiol Costa
+                </CardTitle>
+                <CardDescription className="text-emerald-400 font-semibold text-lg">
+                  Senior Software Architect
+                </CardDescription>
               </CardHeader>
-              <CardContent>
-                <p className="text-slate-600 mb-4">
-                  Formado em engenharia eletrônica pela POLI e técnico em mecatrônica pela ETEC. 
-                  Especialista em desenvolvimento de soluções tecnológicas inovadoras.
+              <CardContent className="text-center">
+                <p className="text-white/80 mb-6 leading-relaxed">
+                  Arquiteto de software formado em engenharia eletrônica pela POLI e técnico em mecatrônica. 
+                  Especialista em soluções tecnológicas disruptivas.
                 </p>
                 <Button 
                   variant="outline" 
-                  size="sm" 
-                  className="w-full hover:bg-green-50 hover:border-green-300"
+                  className="w-full glass border-emerald-400/50 text-emerald-400 hover:bg-emerald-400/10"
                   onClick={() => openLinkedIn("https://www.linkedin.com/in/lucasdelfiol/")}
                 >
                   <Linkedin className="w-4 h-4 mr-2" />
-                  LinkedIn
+                  Conectar
                 </Button>
               </CardContent>
             </Card>
@@ -383,64 +466,79 @@ const Index = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-cyan-500">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold text-white mb-6">
-            Pronto para Transformar seu Negócio?
+      <section className="py-20 relative">
+        <div className="absolute inset-0 bg-gradient-to-r from-cyan-600/20 via-purple-600/20 to-pink-600/20"></div>
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <h2 className="text-5xl md:text-6xl font-bold text-white mb-8">
+            Pronto para o <span className="holographic-text">Futuro</span>?
           </h2>
-          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-            Entre em contato conosco e descubra como podemos ajudar sua empresa a alcançar novos patamares com tecnologia de ponta.
+          <p className="text-xl text-white/80 mb-12 max-w-3xl mx-auto leading-relaxed">
+            Junte-se à revolução tecnológica e transforme sua empresa em uma potência digital. 
+            O futuro começa agora.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100 text-lg px-8 py-6" onClick={openWhatsApp}>
-              <MessageCircle className="mr-2 w-5 h-5" />
-              Falar no WhatsApp
+          <div className="flex flex-col sm:flex-row gap-6 justify-center">
+            <Button size="lg" className="futuristic-btn bg-gradient-to-r from-cyan-500 via-purple-600 to-pink-500 text-xl px-12 py-8 rounded-2xl" onClick={openWhatsApp}>
+              <MessageCircle className="mr-3 w-6 h-6" />
+              Iniciar Transformação
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-blue-600 text-lg px-8 py-6" onClick={openEmail}>
-              <Mail className="mr-2 w-5 h-5" />
-              Enviar E-mail
+            <Button size="lg" variant="outline" className="glass border-white/30 text-white hover:bg-white/10 text-xl px-12 py-8 rounded-2xl" onClick={openEmail}>
+              <Mail className="mr-3 w-6 h-6" />
+              Contato Estratégico
             </Button>
           </div>
         </div>
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-white">
+      <section id="contact" className="py-20 relative">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-slate-800 mb-4">Entre em Contato</h2>
-              <p className="text-xl text-slate-600">Vamos conversar sobre seu projeto</p>
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-20">
+              <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">
+                Conecte-se ao <span className="holographic-text">Futuro</span>
+              </h2>
+              <p className="text-xl text-white/70">Vamos co-criar o amanhã do seu negócio</p>
             </div>
             
             <div className="grid md:grid-cols-2 gap-12">
-              <div>
-                <h3 className="text-2xl font-semibold mb-6">Fale Conosco</h3>
-                <div className="space-y-4">
-                  <div className="flex items-center space-x-3">
-                    <MessageCircle className="w-6 h-6 text-green-500" />
-                    <span className="text-slate-700">WhatsApp: (11) 91977-6155</span>
+              <div className="glass rounded-2xl p-8">
+                <h3 className="text-3xl font-bold text-white mb-8">Canais Diretos</h3>
+                <div className="space-y-6">
+                  <div className="flex items-center space-x-4 group cursor-pointer" onClick={openWhatsApp}>
+                    <div className="w-12 h-12 bg-gradient-to-r from-green-400 to-emerald-500 rounded-full flex items-center justify-center animate-pulse-glow">
+                      <MessageCircle className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <div className="text-white font-semibold group-hover:text-green-400 transition-colors">WhatsApp Direto</div>
+                      <div className="text-white/70">(11) 91977-6155</div>
+                    </div>
                   </div>
-                  <div className="flex items-center space-x-3">
-                    <Mail className="w-6 h-6 text-blue-500" />
-                    <span className="text-slate-700">flaviodfc@gmail.com</span>
+                  <div className="flex items-center space-x-4 group cursor-pointer" onClick={openEmail}>
+                    <div className="w-12 h-12 bg-gradient-to-r from-blue-400 to-cyan-500 rounded-full flex items-center justify-center animate-pulse-glow">
+                      <Mail className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <div className="text-white font-semibold group-hover:text-blue-400 transition-colors">Email Estratégico</div>
+                      <div className="text-white/70">flaviodfc@gmail.com</div>
+                    </div>
                   </div>
                 </div>
                 
-                <div className="mt-8">
-                  <h4 className="text-lg font-semibold mb-4">Redes Sociais</h4>
+                <div className="mt-12">
+                  <h4 className="text-xl font-bold text-white mb-6">Redes Sociais</h4>
                   <div className="flex space-x-4">
-                    <Button variant="outline" size="sm">
-                      <Facebook className="w-4 h-4" />
+                    <Button variant="outline" className="glass border-blue-400/50 text-blue-400 hover:bg-blue-400/10">
+                      <Facebook className="w-5 h-5" />
                     </Button>
-                    <Button variant="outline" size="sm">
-                      <Instagram className="w-4 h-4" />
+                    <Button variant="outline" className="glass border-pink-400/50 text-pink-400 hover:bg-pink-400/10">
+                      <Instagram className="w-5 h-5" />
                     </Button>
                   </div>
                 </div>
               </div>
               
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="glass rounded-2xl p-8 space-y-6">
+                <h3 className="text-3xl font-bold text-white mb-8">Mensagem Quântica</h3>
                 <div>
                   <Input
                     type="text"
@@ -450,7 +548,7 @@ const Index = () => {
                     onChange={handleInputChange}
                     required
                     disabled={isSubmitting}
-                    className="w-full"
+                    className="glass border-white/20 text-white placeholder:text-white/50 focus:border-cyan-400/50"
                   />
                 </div>
                 <div>
@@ -462,7 +560,7 @@ const Index = () => {
                     onChange={handleInputChange}
                     required
                     disabled={isSubmitting}
-                    className="w-full"
+                    className="glass border-white/20 text-white placeholder:text-white/50 focus:border-cyan-400/50"
                   />
                 </div>
                 <div>
@@ -473,36 +571,39 @@ const Index = () => {
                     value={formData.company}
                     onChange={handleInputChange}
                     disabled={isSubmitting}
-                    className="w-full"
+                    className="glass border-white/20 text-white placeholder:text-white/50 focus:border-cyan-400/50"
                   />
                 </div>
                 <div>
                   <Textarea
                     name="message"
-                    placeholder="Como podemos ajudar você? *"
+                    placeholder="Como podemos revolucionar seu negócio? *"
                     value={formData.message}
                     onChange={handleInputChange}
                     required
                     disabled={isSubmitting}
-                    className="w-full h-32"
+                    className="glass border-white/20 text-white placeholder:text-white/50 focus:border-cyan-400/50 h-32"
                   />
                 </div>
                 <Button 
                   type="submit" 
                   disabled={isSubmitting}
-                  className="w-full bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 disabled:opacity-50"
+                  className="w-full futuristic-btn bg-gradient-to-r from-cyan-500 via-purple-600 to-pink-500 text-lg py-6"
                 >
                   {isSubmitting ? (
                     <>
-                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                      Enviando...
+                      <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                      Transmitindo...
                     </>
                   ) : (
-                    'Enviar Mensagem'
+                    <>
+                      <Rocket className="mr-2 h-5 w-5" />
+                      Enviar ao Futuro
+                    </>
                   )}
                 </Button>
-                <p className="text-sm text-slate-500 text-center">
-                  * Campos obrigatórios
+                <p className="text-sm text-white/50 text-center">
+                  * Campos obrigatórios para conexão quântica
                 </p>
               </form>
             </div>
@@ -511,38 +612,38 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-slate-800 text-white py-12">
+      <footer className="glass border-t border-white/10 py-12 relative">
         <div className="container mx-auto px-4 text-center">
-          <div className="flex justify-center items-center space-x-2 mb-6">
-            <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-lg flex items-center justify-center">
-              <Code className="w-6 h-6 text-white" />
+          <div className="flex justify-center items-center space-x-3 mb-8">
+            <div className="w-12 h-12 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 rounded-xl flex items-center justify-center animate-pulse-glow">
+              <Code className="w-7 h-7 text-white" />
             </div>
-            <span className="text-2xl font-bold">DelFiol Tech</span>
+            <span className="text-3xl font-bold holographic-text">DelFiol Tech</span>
           </div>
-          <p className="text-slate-400 mb-6">
-            Democratizando o acesso à tecnologia para pequenas e médias empresas
+          <p className="text-white/70 mb-8 text-lg">
+            Democratizando tecnologias exponenciais para empresas visionárias
           </p>
-          <div className="flex justify-center space-x-6 mb-6">
-            <Button variant="ghost" size="sm" className="text-slate-400 hover:text-white">
-              <Facebook className="w-5 h-5" />
+          <div className="flex justify-center space-x-6 mb-8">
+            <Button variant="ghost" className="text-white/60 hover:text-cyan-400">
+              <Facebook className="w-6 h-6" />
             </Button>
-            <Button variant="ghost" size="sm" className="text-slate-400 hover:text-white">
-              <Instagram className="w-5 h-5" />
+            <Button variant="ghost" className="text-white/60 hover:text-pink-400">
+              <Instagram className="w-6 h-6" />
             </Button>
           </div>
-          <p className="text-slate-500 text-sm">
-            © 2025 DelFiol Tech. Todos os direitos reservados.
+          <p className="text-white/50">
+            © 2025 DelFiol Tech. Todos os direitos reservados. Construindo o futuro, hoje.
           </p>
         </div>
       </footer>
 
       {/* WhatsApp Float Button */}
-      <div className="fixed bottom-6 right-6 z-50">
+      <div className="fixed bottom-8 right-8 z-50">
         <Button
           onClick={openWhatsApp}
-          className="w-14 h-14 rounded-full bg-green-500 hover:bg-green-600 shadow-lg hover:shadow-xl transition-all duration-300 animate-pulse"
+          className="w-16 h-16 rounded-full bg-gradient-to-r from-green-400 to-emerald-500 hover:from-green-500 hover:to-emerald-600 shadow-2xl hover:shadow-green-500/25 transition-all duration-300 animate-pulse-glow group"
         >
-          <MessageCircle className="w-6 h-6" />
+          <MessageCircle className="w-7 h-7 group-hover:scale-110 transition-transform" />
         </Button>
       </div>
     </div>
