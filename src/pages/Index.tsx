@@ -17,6 +17,7 @@ const Index = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isStartNowModalOpen, setIsStartNowModalOpen] = useState(false);
+  const [modalPrefilledMessage, setModalPrefilledMessage] = useState("");
   const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -95,8 +96,20 @@ const Index = () => {
     window.open("mailto:flaviodfc@gmail.com?subject=Contato DelFiol Tech&body=Olá! Gostaria de saber mais sobre os serviços da DelFiol Tech.", "_blank");
   };
 
-  const openStartNowModal = () => {
+  const openStartNowModal = (prefilledMessage?: string) => {
+    if (prefilledMessage) {
+      setModalPrefilledMessage(prefilledMessage);
+    } else {
+      setModalPrefilledMessage("");
+    }
     setIsStartNowModalOpen(true);
+  };
+
+  // Mensagens pré-definidas para cada serviço
+  const serviceMessages = {
+    web: "Olá! Tenho interesse em desenvolver um site/aplicação web para minha empresa. Gostaria de saber mais sobre os serviços de desenvolvimento web da DelFiol Tech, incluindo landing pages, e-commerce e aplicações web otimizadas para SEO.",
+    ia: "Olá! Tenho interesse em implementar soluções de inteligência artificial na minha empresa. Gostaria de saber mais sobre chatbots inteligentes, automação de vendas, análise de dados e suporte 24/7 com IA.",
+    consultoria: "Olá! Tenho interesse em consultoria tecnológica para minha empresa. Gostaria de saber mais sobre diagnóstico tecnológico, planejamento digital, otimização de processos e treinamento da equipe."
   };
 
   return (
@@ -161,7 +174,7 @@ const Index = () => {
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <Button 
               size="lg" 
-              onClick={openStartNowModal}
+              onClick={() => openStartNowModal()}
               className="futuristic-btn bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 hover:from-cyan-400 hover:via-blue-500 hover:to-purple-500 text-xl px-12 py-8 rounded-2xl transform hover:scale-105 transition-all duration-300"
             >
               <Rocket className="mr-3 w-6 h-6" />
@@ -236,7 +249,10 @@ const Index = () => {
                   <li className="flex items-center"><CheckCircle className="w-4 h-4 text-cyan-400 mr-3" />Aplicações Web</li>
                   <li className="flex items-center"><CheckCircle className="w-4 h-4 text-cyan-400 mr-3" />SEO Otimizado</li>
                 </ul>
-                <Button className="w-full futuristic-btn bg-gradient-to-r from-cyan-500 to-blue-600">
+                <Button 
+                  className="w-full futuristic-btn bg-gradient-to-r from-cyan-500 to-blue-600"
+                  onClick={() => openStartNowModal(serviceMessages.web)}
+                >
                   Saiba Mais
                 </Button>
               </CardContent>
@@ -273,7 +289,10 @@ const Index = () => {
                   <li className="flex items-center"><CheckCircle className="w-4 h-4 text-purple-400 mr-3" />Análise de Dados</li>
                   <li className="flex items-center"><CheckCircle className="w-4 h-4 text-purple-400 mr-3" />Suporte 24/7</li>
                 </ul>
-                <Button className="w-full futuristic-btn bg-gradient-to-r from-purple-500 to-pink-600">
+                <Button 
+                  className="w-full futuristic-btn bg-gradient-to-r from-purple-500 to-pink-600"
+                  onClick={() => openStartNowModal(serviceMessages.ia)}
+                >
                   Descobrir IA
                 </Button>
               </CardContent>
@@ -310,7 +329,10 @@ const Index = () => {
                   <li className="flex items-center"><CheckCircle className="w-4 h-4 text-emerald-400 mr-3" />Otimização de Processos</li>
                   <li className="flex items-center"><CheckCircle className="w-4 h-4 text-emerald-400 mr-3" />Treinamento da Equipe</li>
                 </ul>
-                <Button className="w-full futuristic-btn bg-gradient-to-r from-emerald-500 to-teal-600">
+                <Button 
+                  className="w-full futuristic-btn bg-gradient-to-r from-emerald-500 to-teal-600"
+                  onClick={() => openStartNowModal(serviceMessages.consultoria)}
+                >
                   Consultoria
                 </Button>
               </CardContent>
@@ -671,7 +693,8 @@ const Index = () => {
       {/* Modal Começar Agora */}
       <StartNowModal 
         isOpen={isStartNowModalOpen} 
-        onClose={() => setIsStartNowModalOpen(false)} 
+        onClose={() => setIsStartNowModalOpen(false)}
+        prefilledMessage={modalPrefilledMessage}
       />
     </div>
   );

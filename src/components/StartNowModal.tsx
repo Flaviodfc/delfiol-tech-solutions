@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -11,9 +11,10 @@ import { sendStartNowEmail, type StartNowFormData } from "@/lib/emailjs";
 interface StartNowModalProps {
   isOpen: boolean;
   onClose: () => void;
+  prefilledMessage?: string;
 }
 
-export const StartNowModal = ({ isOpen, onClose }: StartNowModalProps) => {
+export const StartNowModal = ({ isOpen, onClose, prefilledMessage }: StartNowModalProps) => {
   const [formData, setFormData] = useState<StartNowFormData>({
     name: "",
     company: "",
@@ -25,6 +26,16 @@ export const StartNowModal = ({ isOpen, onClose }: StartNowModalProps) => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
+
+  // Efeito para preencher a mensagem quando o modal abrir
+  useEffect(() => {
+    if (isOpen && prefilledMessage) {
+      setFormData(prev => ({
+        ...prev,
+        message: prefilledMessage
+      }));
+    }
+  }, [isOpen, prefilledMessage]);
 
   // Função para formatar o WhatsApp
   const formatWhatsApp = (value: string) => {
@@ -148,15 +159,29 @@ export const StartNowModal = ({ isOpen, onClose }: StartNowModalProps) => {
     });
   };
 
+  const handleClose = () => {
+    // Resetar formulário ao fechar
+    setFormData({
+      name: "",
+      company: "",
+      companySize: "",
+      position: "",
+      email: "",
+      whatsapp: "",
+      message: ""
+    });
+    onClose();
+  };
+
   return (
-    <Dialog open={isOpen} onOpenChange={onClose}>
+    <Dialog open={isOpen} onOpenChange={handleClose}>
       <DialogContent className="glass border-cyan-400/20 max-w-2xl max-h-[90vh] overflow-y-auto bg-gradient-to-br from-slate-900/95 via-purple-900/95 to-slate-900/95 backdrop-blur-xl">
         <DialogHeader className="relative">
           <div className="absolute -top-2 -right-2">
             <Button
               variant="ghost"
               size="icon"
-              onClick={onClose}
+              onClick={handleClose}
               className="text-white/60 hover:text-white hover:bg-white/10 rounded-full"
             >
               <X className="w-5 h-5" />
@@ -208,7 +233,7 @@ export const StartNowModal = ({ isOpen, onClose }: StartNowModalProps) => {
               <label className="text-white/80 text-sm font-medium mb-2 block">
                 Tamanho da Empresa
               </label>
-              <Select onValueChange={handleSelectChange} disabled={isSubmitting}>
+              <Select onValueChange={handleSelectChange} disabled={isSubmitting} value={formData.companySize}>
                 <SelectTrigger className="glass border-white/20 text-white focus:border-cyan-400/50">
                   <SelectValue placeholder="Selecione o tamanho" />
                 </SelectTrigger>
@@ -293,7 +318,7 @@ export const StartNowModal = ({ isOpen, onClose }: StartNowModalProps) => {
             <Button
               type="button"
               variant="outline"
-              onClick={onClose}
+              onClick={handleClose}
               disabled={isSubmitting}
               className="glass border-white/30 text-white hover:bg-white/10 flex-1"
             >
