@@ -171,8 +171,8 @@ const Index = () => {
               <div className="text-white/70">Projetos Entregues</div>
             </div>
             <div className="glass rounded-2xl p-6 modern-hover">
-              <div className="text-4xl font-bold holographic-text">24/7</div>
-              <div className="text-white/70">Suporte Disponível</div>
+              <div className="text-4xl font-bold holographic-text">30+</div>
+              <div className="text-white/70">Anos no Mercado</div>
             </div>
             <div className="glass rounded-2xl p-6 modern-hover">
               <div className="text-4xl font-bold holographic-text">99%</div>
