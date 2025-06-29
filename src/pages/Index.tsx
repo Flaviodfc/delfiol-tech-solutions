@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { MessageCircle, Mail, Phone, Facebook, Instagram, Linkedin, Code, Bot, Globe, Users, Briefcase, Star, ArrowRight, CheckCircle, Loader2, Zap, Rocket, Shield, Cpu, Database, Cloud } from "lucide-react";
+import { MessageCircle, Mail, Phone, Facebook, Instagram, Linkedin, Code, Bot, Globe, Users, Briefcase, Star, ArrowRight, CheckCircle, Loader2, Zap, Rocket, Shield, Cpu, Database, Cloud, Monitor, Smartphone, Search, ShoppingCart, BarChart3, MessageSquare, Clock, TrendingUp, Target, Settings, Lightbulb, PieChart } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { sendContactEmail, type ContactFormData } from "@/lib/emailjs";
 import { StartNowModal } from "@/components/StartNowModal";
@@ -221,24 +221,35 @@ const Index = () => {
             {/* Desenvolvimento Web */}
             <Card className="group glass border-cyan-400/20 hover:border-cyan-400/50 modern-hover bg-gradient-to-br from-cyan-500/10 to-blue-600/10 overflow-hidden relative">
               <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/5 to-blue-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="relative h-56 overflow-hidden rounded-t-lg">
-                <img 
-                  src="https://images.pexels.com/photos/11035380/pexels-photo-11035380.jpeg?auto=compress&cs=tinysrgb&w=800" 
-                  alt="Desenvolvimento Web - Programador trabalhando em código moderno"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-cyan-900/60 via-transparent to-transparent"></div>
-                <div className="absolute top-4 right-4">
-                  <div className="w-12 h-12 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full flex items-center justify-center animate-pulse-glow">
-                    <Globe className="w-6 h-6 text-white" />
+              
+              {/* Ícone Principal */}
+              <div className="relative p-8 text-center">
+                <div className="w-24 h-24 mx-auto mb-6 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-3xl flex items-center justify-center animate-pulse-glow group-hover:animate-float shadow-2xl">
+                  <Globe className="w-12 h-12 text-white" />
+                </div>
+                
+                {/* Ícones Secundários */}
+                <div className="flex justify-center space-x-4 mb-6">
+                  <div className="w-12 h-12 bg-cyan-400/20 rounded-xl flex items-center justify-center group-hover:bg-cyan-400/30 transition-colors">
+                    <Monitor className="w-6 h-6 text-cyan-400" />
+                  </div>
+                  <div className="w-12 h-12 bg-blue-400/20 rounded-xl flex items-center justify-center group-hover:bg-blue-400/30 transition-colors">
+                    <Smartphone className="w-6 h-6 text-blue-400" />
+                  </div>
+                  <div className="w-12 h-12 bg-purple-400/20 rounded-xl flex items-center justify-center group-hover:bg-purple-400/30 transition-colors">
+                    <Search className="w-6 h-6 text-purple-400" />
+                  </div>
+                  <div className="w-12 h-12 bg-emerald-400/20 rounded-xl flex items-center justify-center group-hover:bg-emerald-400/30 transition-colors">
+                    <ShoppingCart className="w-6 h-6 text-emerald-400" />
                   </div>
                 </div>
               </div>
-              <CardHeader className="relative z-10">
-                <CardTitle className="text-2xl text-white group-hover:text-cyan-400 transition-colors">
+
+              <CardHeader className="relative z-10 pt-0">
+                <CardTitle className="text-2xl text-white group-hover:text-cyan-400 transition-colors text-center">
                   Desenvolvimento Web
                 </CardTitle>
-                <CardDescription className="text-white/70 text-base">
+                <CardDescription className="text-white/70 text-base text-center">
                   Sites modernos, responsivos e otimizados para conversão
                 </CardDescription>
               </CardHeader>
@@ -261,24 +272,35 @@ const Index = () => {
             {/* IA */}
             <Card className="group glass border-purple-400/20 hover:border-purple-400/50 modern-hover bg-gradient-to-br from-purple-500/10 to-pink-600/10 overflow-hidden relative">
               <div className="absolute inset-0 bg-gradient-to-br from-purple-400/5 to-pink-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="relative h-56 overflow-hidden rounded-t-lg">
-                <img 
-                  src="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800" 
-                  alt="Inteligência Artificial - Robot futurístico e neural networks"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-purple-900/60 via-transparent to-transparent"></div>
-                <div className="absolute top-4 right-4">
-                  <div className="w-12 h-12 bg-gradient-to-r from-purple-400 to-pink-500 rounded-full flex items-center justify-center animate-pulse-glow">
-                    <Bot className="w-6 h-6 text-white animate-hologram" />
+              
+              {/* Ícone Principal */}
+              <div className="relative p-8 text-center">
+                <div className="w-24 h-24 mx-auto mb-6 bg-gradient-to-r from-purple-400 to-pink-500 rounded-3xl flex items-center justify-center animate-pulse-glow group-hover:animate-float shadow-2xl">
+                  <Bot className="w-12 h-12 text-white animate-hologram" />
+                </div>
+                
+                {/* Ícones Secundários */}
+                <div className="flex justify-center space-x-4 mb-6">
+                  <div className="w-12 h-12 bg-purple-400/20 rounded-xl flex items-center justify-center group-hover:bg-purple-400/30 transition-colors">
+                    <MessageSquare className="w-6 h-6 text-purple-400" />
+                  </div>
+                  <div className="w-12 h-12 bg-pink-400/20 rounded-xl flex items-center justify-center group-hover:bg-pink-400/30 transition-colors">
+                    <TrendingUp className="w-6 h-6 text-pink-400" />
+                  </div>
+                  <div className="w-12 h-12 bg-violet-400/20 rounded-xl flex items-center justify-center group-hover:bg-violet-400/30 transition-colors">
+                    <BarChart3 className="w-6 h-6 text-violet-400" />
+                  </div>
+                  <div className="w-12 h-12 bg-fuchsia-400/20 rounded-xl flex items-center justify-center group-hover:bg-fuchsia-400/30 transition-colors">
+                    <Clock className="w-6 h-6 text-fuchsia-400" />
                   </div>
                 </div>
               </div>
-              <CardHeader className="relative z-10">
-                <CardTitle className="text-2xl text-white group-hover:text-purple-400 transition-colors">
+
+              <CardHeader className="relative z-10 pt-0">
+                <CardTitle className="text-2xl text-white group-hover:text-purple-400 transition-colors text-center">
                   Agentes de IA
                 </CardTitle>
-                <CardDescription className="text-white/70 text-base">
+                <CardDescription className="text-white/70 text-base text-center">
                   Automatize processos e melhore a experiência do cliente
                 </CardDescription>
               </CardHeader>
@@ -301,24 +323,35 @@ const Index = () => {
             {/* Consultoria */}
             <Card className="group glass border-emerald-400/20 hover:border-emerald-400/50 modern-hover bg-gradient-to-br from-emerald-500/10 to-teal-600/10 overflow-hidden relative">
               <div className="absolute inset-0 bg-gradient-to-br from-emerald-400/5 to-teal-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="relative h-56 overflow-hidden rounded-t-lg">
-                <img 
-                  src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800" 
-                  alt="Consultoria Tecnológica - Executivos em reunião estratégica com tecnologia"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-emerald-900/60 via-transparent to-transparent"></div>
-                <div className="absolute top-4 right-4">
-                  <div className="w-12 h-12 bg-gradient-to-r from-emerald-400 to-teal-500 rounded-full flex items-center justify-center animate-pulse-glow">
-                    <Briefcase className="w-6 h-6 text-white" />
+              
+              {/* Ícone Principal */}
+              <div className="relative p-8 text-center">
+                <div className="w-24 h-24 mx-auto mb-6 bg-gradient-to-r from-emerald-400 to-teal-500 rounded-3xl flex items-center justify-center animate-pulse-glow group-hover:animate-float shadow-2xl">
+                  <Briefcase className="w-12 h-12 text-white" />
+                </div>
+                
+                {/* Ícones Secundários */}
+                <div className="flex justify-center space-x-4 mb-6">
+                  <div className="w-12 h-12 bg-emerald-400/20 rounded-xl flex items-center justify-center group-hover:bg-emerald-400/30 transition-colors">
+                    <Target className="w-6 h-6 text-emerald-400" />
+                  </div>
+                  <div className="w-12 h-12 bg-teal-400/20 rounded-xl flex items-center justify-center group-hover:bg-teal-400/30 transition-colors">
+                    <Settings className="w-6 h-6 text-teal-400" />
+                  </div>
+                  <div className="w-12 h-12 bg-green-400/20 rounded-xl flex items-center justify-center group-hover:bg-green-400/30 transition-colors">
+                    <Lightbulb className="w-6 h-6 text-green-400" />
+                  </div>
+                  <div className="w-12 h-12 bg-cyan-400/20 rounded-xl flex items-center justify-center group-hover:bg-cyan-400/30 transition-colors">
+                    <PieChart className="w-6 h-6 text-cyan-400" />
                   </div>
                 </div>
               </div>
-              <CardHeader className="relative z-10">
-                <CardTitle className="text-2xl text-white group-hover:text-emerald-400 transition-colors">
+
+              <CardHeader className="relative z-10 pt-0">
+                <CardTitle className="text-2xl text-white group-hover:text-emerald-400 transition-colors text-center">
                   Consultoria Tech
                 </CardTitle>
-                <CardDescription className="text-white/70 text-base">
+                <CardDescription className="text-white/70 text-base text-center">
                   Estratégia e orientação para sua transformação digital
                 </CardDescription>
               </CardHeader>
