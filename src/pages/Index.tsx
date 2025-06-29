@@ -6,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { MessageCircle, Mail, Phone, Facebook, Instagram, Linkedin, Code, Bot, Globe, Users, Briefcase, Star, ArrowRight, CheckCircle, Loader2, Zap, Rocket, Shield, Cpu, Database, Cloud } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { sendContactEmail, type ContactFormData } from "@/lib/emailjs";
+import { StartNowModal } from "@/components/StartNowModal";
 
 const Index = () => {
   const [formData, setFormData] = useState<ContactFormData>({
@@ -15,6 +16,7 @@ const Index = () => {
     message: ""
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isStartNowModalOpen, setIsStartNowModalOpen] = useState(false);
   const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -93,6 +95,10 @@ const Index = () => {
     window.open("mailto:flaviodfc@gmail.com?subject=Contato DelFiol Tech&body=Olá! Gostaria de saber mais sobre os serviços da DelFiol Tech.", "_blank");
   };
 
+  const openStartNowModal = () => {
+    setIsStartNowModalOpen(true);
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 relative overflow-hidden">
       {/* Partículas de fundo */}
@@ -153,7 +159,11 @@ const Index = () => {
             Democratizando o acesso às tecnologias que antes eram exclusivas das grandes corporações.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <Button size="lg" className="futuristic-btn bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 hover:from-cyan-400 hover:via-blue-500 hover:to-purple-500 text-xl px-12 py-8 rounded-2xl transform hover:scale-105 transition-all duration-300">
+            <Button 
+              size="lg" 
+              onClick={openStartNowModal}
+              className="futuristic-btn bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 hover:from-cyan-400 hover:via-blue-500 hover:to-purple-500 text-xl px-12 py-8 rounded-2xl transform hover:scale-105 transition-all duration-300"
+            >
               <Rocket className="mr-3 w-6 h-6" />
               Começar Agora
               <ArrowRight className="ml-3 w-6 h-6" />
@@ -657,6 +667,12 @@ const Index = () => {
           <MessageCircle className="w-7 h-7 group-hover:scale-110 transition-transform" />
         </Button>
       </div>
+
+      {/* Modal Começar Agora */}
+      <StartNowModal 
+        isOpen={isStartNowModalOpen} 
+        onClose={() => setIsStartNowModalOpen(false)} 
+      />
     </div>
   );
 };
