@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { MessageCircle, Mail, Phone, Facebook, Instagram, Linkedin, Code, Bot, Globe, Users, Briefcase, Star, ArrowRight, CheckCircle, Loader2, Zap, Rocket, Shield, Cpu, Database, Cloud, Monitor, Smartphone, Search, ShoppingCart, BarChart3, MessageSquare, Clock, TrendingUp, Target, Settings, Lightbulb, PieChart } from "lucide-react";
+import { MessageCircle, Mail, Phone, Facebook, Instagram, Linkedin, Code, Bot, Globe, Users, Briefcase, Star, ArrowRight, CheckCircle, Loader2, Zap, Rocket, Shield, Cpu, Database, Cloud, Monitor, Smartphone, Search, ShoppingCart, BarChart3, MessageSquare, Clock, TrendingUp, Target, Settings, Lightbulb, PieChart, Heart, Award, Sparkles } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { sendContactEmail, type ContactFormData } from "@/lib/emailjs";
 import { StartNowModal } from "@/components/StartNowModal";
@@ -25,6 +25,7 @@ const Index = () => {
     setIsSubmitting(true);
 
     try {
+      // Validações
       if (!formData.name || !formData.email || !formData.message) {
         toast({
           title: "Campos obrigatórios",
@@ -387,11 +388,12 @@ const Index = () => {
             </p>
             
             <div className="grid md:grid-cols-3 gap-8 mt-20">
+              {/* Atendimento Familiar - Ícone Heart (Coração) */}
               <div className="glass rounded-2xl p-8 modern-hover group">
-                <div className="w-20 h-20 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse-glow group-hover:animate-float">
-                  <Users className="w-10 h-10 text-white" />
+                <div className="w-20 h-20 bg-gradient-to-r from-pink-400 via-rose-500 to-red-500 rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse-glow group-hover:animate-float">
+                  <Heart className="w-10 h-10 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-cyan-400 transition-colors">
+                <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-pink-400 transition-colors">
                   Atendimento Familiar
                 </h3>
                 <p className="text-white/70 leading-relaxed">
@@ -399,11 +401,12 @@ const Index = () => {
                 </p>
               </div>
               
+              {/* Soluções Premium - Ícone Award (Prêmio) */}
               <div className="glass rounded-2xl p-8 modern-hover group">
-                <div className="w-20 h-20 bg-gradient-to-r from-purple-400 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse-glow group-hover:animate-float">
-                  <Star className="w-10 h-10 text-white" />
+                <div className="w-20 h-20 bg-gradient-to-r from-amber-400 via-yellow-500 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse-glow group-hover:animate-float">
+                  <Award className="w-10 h-10 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-purple-400 transition-colors">
+                <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-amber-400 transition-colors">
                   Soluções Premium
                 </h3>
                 <p className="text-white/70 leading-relaxed">
@@ -411,11 +414,12 @@ const Index = () => {
                 </p>
               </div>
               
+              {/* Expertise Técnica - Ícone Sparkles (Faíscas/Inovação) */}
               <div className="glass rounded-2xl p-8 modern-hover group">
-                <div className="w-20 h-20 bg-gradient-to-r from-emerald-400 to-teal-500 rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse-glow group-hover:animate-float">
-                  <Code className="w-10 h-10 text-white" />
+                <div className="w-20 h-20 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse-glow group-hover:animate-float">
+                  <Sparkles className="w-10 h-10 text-white animate-hologram" />
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-emerald-400 transition-colors">
+                <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-cyan-400 transition-colors">
                   Expertise Técnica
                 </h3>
                 <p className="text-white/70 leading-relaxed">
