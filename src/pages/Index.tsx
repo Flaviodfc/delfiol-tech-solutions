@@ -375,7 +375,7 @@ const Index = () => {
           </div>
           
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {/* Flavio */}
+            {/* Flavio - Primeiro */}
             <Card className="glass border-cyan-400/20 hover:border-cyan-400/50 modern-hover group overflow-hidden">
               <CardHeader className="text-center relative">
                 <div className="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4 border-cyan-400/30 group-hover:border-cyan-400/60 transition-all duration-300 animate-pulse-glow group-hover:animate-float">
@@ -408,40 +408,7 @@ const Index = () => {
               </CardContent>
             </Card>
 
-            {/* Lucas */}
-            <Card className="glass border-purple-400/20 hover:border-purple-400/50 modern-hover group overflow-hidden">
-              <CardHeader className="text-center relative">
-                <div className="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4 border-purple-400/30 group-hover:border-purple-400/60 transition-all duration-300 animate-pulse-glow group-hover:animate-float">
-                  <img 
-                    src="/lucas.png" 
-                    alt="Lucas Del Fiol Costa - Engenheiro de Software"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <CardTitle className="text-2xl text-white group-hover:text-purple-400 transition-colors">
-                  Lucas Del Fiol Costa
-                </CardTitle>
-                <CardDescription className="text-purple-400 font-semibold text-lg">
-                  Engenheiro de Software
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="text-center">
-                <p className="text-white/80 mb-6 leading-relaxed">
-                  Formado em engenharia eletrônica pela POLI e técnico em mecatrônica pela ETEC. 
-                  Especialista em desenvolvimento de soluções tecnológicas inovadoras.
-                </p>
-                <Button 
-                  variant="outline" 
-                  className="w-full glass border-purple-400/50 text-purple-400 hover:bg-purple-400/10"
-                  onClick={() => openLinkedIn("https://www.linkedin.com/in/lucasdelfiol/")}
-                >
-                  <Linkedin className="w-4 h-4 mr-2" />
-                  LinkedIn
-                </Button>
-              </CardContent>
-            </Card>
-
-            {/* Paula */}
+            {/* Paula - Segunda */}
             <Card className="glass border-emerald-400/20 hover:border-emerald-400/50 modern-hover group overflow-hidden">
               <CardHeader className="text-center relative">
                 <div className="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4 border-emerald-400/30 group-hover:border-emerald-400/60 transition-all duration-300 animate-pulse-glow group-hover:animate-float">
@@ -467,6 +434,39 @@ const Index = () => {
                   variant="outline" 
                   className="w-full glass border-emerald-400/50 text-emerald-400 hover:bg-emerald-400/10"
                   onClick={() => openLinkedIn("https://www.linkedin.com/in/pauladelfiol/")}
+                >
+                  <Linkedin className="w-4 h-4 mr-2" />
+                  LinkedIn
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* Lucas - Terceiro */}
+            <Card className="glass border-purple-400/20 hover:border-purple-400/50 modern-hover group overflow-hidden">
+              <CardHeader className="text-center relative">
+                <div className="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4 border-purple-400/30 group-hover:border-purple-400/60 transition-all duration-300 animate-pulse-glow group-hover:animate-float">
+                  <img 
+                    src="/lucas.png" 
+                    alt="Lucas Del Fiol Costa - Engenheiro de Software"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <CardTitle className="text-2xl text-white group-hover:text-purple-400 transition-colors">
+                  Lucas Del Fiol Costa
+                </CardTitle>
+                <CardDescription className="text-purple-400 font-semibold text-lg">
+                  Engenheiro de Software
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="text-center">
+                <p className="text-white/80 mb-6 leading-relaxed">
+                  Formado em engenharia eletrônica pela POLI e técnico em mecatrônica pela ETEC. 
+                  Especialista em desenvolvimento de soluções tecnológicas inovadoras.
+                </p>
+                <Button 
+                  variant="outline" 
+                  className="w-full glass border-purple-400/50 text-purple-400 hover:bg-purple-400/10"
+                  onClick={() => openLinkedIn("https://www.linkedin.com/in/lucasdelfiol/")}
                 >
                   <Linkedin className="w-4 h-4 mr-2" />
                   LinkedIn
