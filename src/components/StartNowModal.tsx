@@ -26,16 +26,41 @@ export const StartNowModal = ({ isOpen, onClose }: StartNowModalProps) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
+  // Função para formatar o WhatsApp
+  const formatWhatsApp = (value: string) => {
+    // Remove tudo que não é número
+    const numbers = value.replace(/\D/g, '');
+    
+    // Aplica a máscara (xx) xxxx-xxxx
+    if (numbers.length <= 2) {
+      return numbers;
+    } else if (numbers.length <= 6) {
+      return `(${numbers.slice(0, 2)}) ${numbers.slice(2)}`;
+    } else if (numbers.length <= 10) {
+      return `(${numbers.slice(0, 2)}) ${numbers.slice(2, 6)}-${numbers.slice(6)}`;
+    } else {
+      return `(${numbers.slice(0, 2)}) ${numbers.slice(2, 7)}-${numbers.slice(7, 11)}`;
+    }
+  };
+
+  // Função para validar WhatsApp
+  const validateWhatsApp = (whatsapp: string) => {
+    // Remove caracteres não numéricos
+    const numbers = whatsapp.replace(/\D/g, '');
+    // Verifica se tem 10 ou 11 dígitos (formato brasileiro)
+    return numbers.length === 10 || numbers.length === 11;
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
     try {
       // Validações
-      if (!formData.name || !formData.email || !formData.message) {
+      if (!formData.name || !formData.email || !formData.whatsapp || !formData.message) {
         toast({
           title: "Campos obrigatórios",
-          description: "Por favor, preencha nome, email e mensagem.",
+          description: "Por favor, preencha nome, email, WhatsApp e mensagem.",
           variant: "destructive"
         });
         return;
@@ -46,6 +71,15 @@ export const StartNowModal = ({ isOpen, onClose }: StartNowModalProps) => {
         toast({
           title: "Email inválido",
           description: "Por favor, insira um email válido.",
+          variant: "destructive"
+        });
+        return;
+      }
+
+      if (!validateWhatsApp(formData.whatsapp)) {
+        toast({
+          title: "WhatsApp inválido",
+          description: "Por favor, insira um número de WhatsApp válido no formato (xx) xxxx-xxxx.",
           variant: "destructive"
         });
         return;
@@ -90,10 +124,21 @@ export const StartNowModal = ({ isOpen, onClose }: StartNowModalProps) => {
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+    const { name, value } = e.target;
+    
+    if (name === 'whatsapp') {
+      // Aplica formatação automática para WhatsApp
+      const formattedValue = formatWhatsApp(value);
+      setFormData({
+        ...formData,
+        [name]: formattedValue
+      });
+    } else {
+      setFormData({
+        ...formData,
+        [name]: value
+      });
+    }
   };
 
   const handleSelectChange = (value: string) => {
@@ -210,7 +255,7 @@ export const StartNowModal = ({ isOpen, onClose }: StartNowModalProps) => {
             </div>
             <div>
               <label className="text-white/80 text-sm font-medium mb-2 block">
-                WhatsApp
+                WhatsApp *
               </label>
               <Input
                 type="tel"
@@ -218,9 +263,14 @@ export const StartNowModal = ({ isOpen, onClose }: StartNowModalProps) => {
                 placeholder="(11) 99999-9999"
                 value={formData.whatsapp}
                 onChange={handleInputChange}
+                required
                 disabled={isSubmitting}
+                maxLength={15}
                 className="glass border-white/20 text-white placeholder:text-white/50 focus:border-cyan-400/50"
               />
+              <p className="text-xs text-white/50 mt-1">
+                Formato: (xx) xxxx-xxxx ou (xx) xxxxx-xxxx
+              </p>
             </div>
           </div>
 
