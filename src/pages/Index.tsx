@@ -93,10 +93,6 @@ const Index = () => {
     window.open(url, "_blank");
   };
 
-  const openEmail = () => {
-    window.open("mailto:flaviodfc@gmail.com?subject=Contato DelFiol Tech&body=Olá! Gostaria de saber mais sobre os serviços da DelFiol Tech.", "_blank");
-  };
-
   const openStartNowModal = (prefilledMessage?: string) => {
     if (prefilledMessage) {
       setModalPrefilledMessage(prefilledMessage);
@@ -561,7 +557,12 @@ const Index = () => {
               <MessageCircle className="mr-3 w-6 h-6" />
               Falar no WhatsApp
             </Button>
-            <Button size="lg" variant="outline" className="glass border-white/30 text-white hover:bg-white/10 text-xl px-12 py-8 rounded-2xl" onClick={openEmail}>
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="glass border-white/30 text-white hover:bg-white/10 text-xl px-12 py-8 rounded-2xl" 
+              onClick={() => openStartNowModal()}
+            >
               <Mail className="mr-3 w-6 h-6" />
               Enviar E-mail
             </Button>
@@ -593,7 +594,7 @@ const Index = () => {
                       <div className="text-white/70">(11) 91977-6155</div>
                     </div>
                   </div>
-                  <div className="flex items-center space-x-4 group cursor-pointer" onClick={openEmail}>
+                  <div className="flex items-center space-x-4 group cursor-pointer" onClick={() => openStartNowModal()}>
                     <div className="w-12 h-12 bg-gradient-to-r from-blue-400 to-cyan-500 rounded-full flex items-center justify-center animate-pulse-glow">
                       <Mail className="w-6 h-6 text-white" />
                     </div>
