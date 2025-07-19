@@ -712,22 +712,6 @@ const Index = () => {
           <p className="text-white/70 mb-8 text-lg">
             Democratizando o acesso à tecnologia para pequenas e médias empresas
           </p>
-          <div className="flex justify-center space-x-6 mb-8">
-            <Button 
-              variant="ghost" 
-              className="text-white/60 hover:text-cyan-400"
-              onClick={() => window.open("https://www.facebook.com/delfioltech/", "_blank")}
-            >
-              <Facebook className="w-6 h-6" />
-            </Button>
-            <Button 
-              variant="ghost" 
-              className="text-white/60 hover:text-pink-400"
-              onClick={() => window.open("https://www.instagram.com/delfioltech/", "_blank")}
-            >
-              <Instagram className="w-6 h-6" />
-            </Button>
-          </div>
           <p className="text-white/50">
             © 2025 DelFiol Tech. Todos os direitos reservados.
           </p>
