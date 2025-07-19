@@ -608,10 +608,18 @@ const Index = () => {
                 <div className="mt-12">
                   <h4 className="text-xl font-bold text-white mb-6">Redes Sociais</h4>
                   <div className="flex space-x-4">
-                    <Button variant="outline" className="glass border-blue-400/50 text-blue-400 hover:bg-blue-400/10">
+                    <Button 
+                      variant="outline" 
+                      className="glass border-blue-400/50 text-blue-400 hover:bg-blue-400/10"
+                      onClick={() => window.open("https://www.facebook.com/delfioltech/", "_blank")}
+                    >
                       <Facebook className="w-5 h-5" />
                     </Button>
-                    <Button variant="outline" className="glass border-pink-400/50 text-pink-400 hover:bg-pink-400/10">
+                    <Button 
+                      variant="outline" 
+                      className="glass border-pink-400/50 text-pink-400 hover:bg-pink-400/10"
+                      onClick={() => window.open("https://www.instagram.com/delfioltech/", "_blank")}
+                    >
                       <Instagram className="w-5 h-5" />
                     </Button>
                   </div>
@@ -705,10 +713,18 @@ const Index = () => {
             Democratizando o acesso à tecnologia para pequenas e médias empresas
           </p>
           <div className="flex justify-center space-x-6 mb-8">
-            <Button variant="ghost" className="text-white/60 hover:text-cyan-400">
+            <Button 
+              variant="ghost" 
+              className="text-white/60 hover:text-cyan-400"
+              onClick={() => window.open("https://www.facebook.com/delfioltech/", "_blank")}
+            >
               <Facebook className="w-6 h-6" />
             </Button>
-            <Button variant="ghost" className="text-white/60 hover:text-pink-400">
+            <Button 
+              variant="ghost" 
+              className="text-white/60 hover:text-pink-400"
+              onClick={() => window.open("https://www.instagram.com/delfioltech/", "_blank")}
+            >
               <Instagram className="w-6 h-6" />
             </Button>
           </div>
