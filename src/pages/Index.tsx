@@ -728,7 +728,7 @@ const Index = () => {
               <h4 className="text-lg font-semibold text-white mb-4">Contato</h4>
               <div className="space-y-2 text-white/70">
                 <p className="hover:text-cyan-400 transition-colors cursor-pointer" onClick={openWhatsApp}>
-                  📱 (11) 91977-6155
+                  📱 Fale com nossa IA: (11) 91977-6155
                 </p>
                 <p className="hover:text-cyan-400 transition-colors cursor-pointer" onClick={() => openStartNowModal()}>
                   ✉️ contato@delfioltech.com
@@ -772,14 +772,6 @@ const Index = () => {
                   onClick={() => window.open("https://www.instagram.com/delfioltech/", "_blank")}
                 >
                   <Instagram className="w-4 h-4" />
-                </Button>
-                <Button 
-                  variant="outline" 
-                  size="sm"
-                  className="glass border-green-400/50 text-green-400 hover:bg-green-400/10 w-10 h-10 p-0"
-                  onClick={openWhatsApp}
-                >
-                  <MessageCircle className="w-4 h-4" />
                 </Button>
               </div>
             </div>
