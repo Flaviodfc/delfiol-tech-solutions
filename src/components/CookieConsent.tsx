@@ -201,7 +201,7 @@ export const CookieConsent = () => {
                 entre em contato conosco:
               </p>
               <div className="bg-white/5 rounded-lg p-4 space-y-2">
-                <p><strong>E-mail:</strong> contato@delfioltech.com</p>
+                <p><strong>E-mail:</strong> contato@delfioltech.com.br</p>
                 <p><strong>WhatsApp:</strong> (11) 91977-6155</p>
               </div>
             </section>
