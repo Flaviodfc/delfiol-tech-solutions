@@ -203,13 +203,12 @@ export const CookieConsent = () => {
               <div className="bg-white/5 rounded-lg p-4 space-y-2">
                 <p><strong>E-mail:</strong> contato@delfioltech.com</p>
                 <p><strong>WhatsApp:</strong> (11) 91977-6155</p>
-                <p><strong>Endereço:</strong> São Paulo, SP - Brasil</p>
               </div>
             </section>
 
             <section className="border-t border-white/20 pt-6">
               <p className="text-sm text-white/60">
-                <strong>Última atualização:</strong> Janeiro de 2025
+                <strong>Última atualização:</strong> Julho de 2025
               </p>
               <p className="text-sm text-white/60 mt-2">
                 Esta política está em conformidade com a Lei Geral de Proteção de Dados (LGPD) - Lei nº 13.709/2018.
