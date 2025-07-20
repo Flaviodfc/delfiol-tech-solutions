@@ -7,6 +7,7 @@ import { MessageCircle, Mail, Phone, Facebook, Instagram, Linkedin, Code, Bot, G
 import { useToast } from "@/hooks/use-toast";
 import { sendContactEmail, type ContactFormData } from "@/lib/emailjs";
 import { StartNowModal } from "@/components/StartNowModal";
+import { CookieConsent } from "@/components/CookieConsent";
 
 const Index = () => {
   const [formData, setFormData] = useState<ContactFormData>({
@@ -701,20 +702,106 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="glass border-t border-white/10 py-12 relative">
+      <footer className="glass border-t border-white/10 py-16 relative">
         <div className="container mx-auto px-4 text-center">
-          <div className="flex justify-center items-center space-x-3 mb-8">
-            <div className="w-12 h-12 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 rounded-xl flex items-center justify-center animate-pulse-glow">
-              <Code className="w-7 h-7 text-white" />
+          {/* Logo e Título */}
+          <div className="mb-12">
+            <div className="flex justify-center items-center space-x-3 mb-6">
+              <div className="w-12 h-12 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 rounded-xl flex items-center justify-center animate-pulse-glow">
+                <Code className="w-7 h-7 text-white" />
+              </div>
+              <span className="text-3xl font-bold holographic-text">DelFiol Tech</span>
             </div>
-            <span className="text-3xl font-bold holographic-text">DelFiol Tech</span>
+            <p className="text-white/70 mb-6 text-lg max-w-2xl mx-auto">
+              Democratizando o acesso à tecnologia para pequenas e médias empresas
+            </p>
           </div>
-          <p className="text-white/70 mb-8 text-lg">
-            Democratizando o acesso à tecnologia para pequenas e médias empresas
-          </p>
-          <p className="text-white/50">
-            © 2025 DelFiol Tech. Todos os direitos reservados.
-          </p>
+
+          {/* Links e Informações */}
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
+            {/* Contato */}
+            <div className="text-center">
+              <h4 className="text-lg font-semibold text-white mb-4">Contato</h4>
+              <div className="space-y-2 text-white/70">
+                <p className="hover:text-cyan-400 transition-colors cursor-pointer" onClick={openWhatsApp}>
+                  📱 (11) 91977-6155
+                </p>
+                <p className="hover:text-cyan-400 transition-colors cursor-pointer" onClick={() => openStartNowModal()}>
+                  ✉️ contato@delfioltech.com
+                </p>
+                <p>📍 São Paulo, SP</p>
+              </div>
+            </div>
+
+            {/* Serviços */}
+            <div className="text-center">
+              <h4 className="text-lg font-semibold text-white mb-4">Serviços</h4>
+              <div className="space-y-2 text-white/70">
+                <p className="hover:text-cyan-400 transition-colors cursor-pointer" onClick={() => openStartNowModal(serviceMessages.web)}>
+                  🌐 Desenvolvimento Web
+                </p>
+                <p className="hover:text-cyan-400 transition-colors cursor-pointer" onClick={() => openStartNowModal(serviceMessages.ia)}>
+                  🤖 Inteligência Artificial
+                </p>
+                <p className="hover:text-cyan-400 transition-colors cursor-pointer" onClick={() => openStartNowModal(serviceMessages.consultoria)}>
+                  💼 Consultoria Tech
+                </p>
+              </div>
+            </div>
+
+            {/* Redes Sociais */}
+            <div className="text-center">
+              <h4 className="text-lg font-semibold text-white mb-4">Redes Sociais</h4>
+              <div className="flex justify-center space-x-4">
+                <Button 
+                  variant="outline" 
+                  size="sm"
+                  className="glass border-blue-400/50 text-blue-400 hover:bg-blue-400/10 w-10 h-10 p-0"
+                  onClick={() => window.open("https://www.facebook.com/delfioltech/", "_blank")}
+                >
+                  <Facebook className="w-4 h-4" />
+                </Button>
+                <Button 
+                  variant="outline" 
+                  size="sm"
+                  className="glass border-pink-400/50 text-pink-400 hover:bg-pink-400/10 w-10 h-10 p-0"
+                  onClick={() => window.open("https://www.instagram.com/delfioltech/", "_blank")}
+                >
+                  <Instagram className="w-4 h-4" />
+                </Button>
+                <Button 
+                  variant="outline" 
+                  size="sm"
+                  className="glass border-green-400/50 text-green-400 hover:bg-green-400/10 w-10 h-10 p-0"
+                  onClick={openWhatsApp}
+                >
+                  <MessageCircle className="w-4 h-4" />
+                </Button>
+              </div>
+            </div>
+          </div>
+
+          {/* Linha divisória */}
+          <div className="border-t border-white/20 pt-8">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+              <p className="text-white/50 text-sm">
+                © 2025 DelFiol Tech. Todos os direitos reservados.
+              </p>
+              <div className="flex flex-wrap gap-4 text-sm text-white/50">
+                <button className="hover:text-cyan-400 transition-colors">
+                  Política de Privacidade
+                </button>
+                <span>•</span>
+                <button className="hover:text-cyan-400 transition-colors">
+                  Termos de Uso
+                </button>
+                <span>•</span>
+                <button className="hover:text-cyan-400 transition-colors">
+                  Cookies
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </footer>
 
@@ -734,6 +821,9 @@ const Index = () => {
         onClose={() => setIsStartNowModalOpen(false)}
         prefilledMessage={modalPrefilledMessage}
       />
+
+      {/* Cookie Consent */}
+      <CookieConsent />
     </div>
   );
 };
