@@ -603,7 +603,7 @@ const Index = () => {
                   📱 Fale com nossa IA: (11) 91977-6155
                 </p>
                 <p className="hover:text-cyan-400 transition-colors cursor-pointer" onClick={() => openStartNowModal()}>
-                  ✉️ contato@delfioltech.com
+                  ✉️ contato@delfioltech.com.br
                 </p>
                 <p>📍 São Paulo, SP</p>
               </div>
@@ -818,7 +818,7 @@ const Index = () => {
                 entre em contato conosco:
               </p>
               <div className="bg-white/5 rounded-lg p-4 space-y-2">
-                <p><strong>E-mail:</strong> contato@delfioltech.com</p>
+                <p><strong>E-mail:</strong> contato@delfioltech.com.br</p>
                 <p><strong>WhatsApp:</strong> (11) 91977-6155</p>
               </div>
             </section>
@@ -951,7 +951,7 @@ const Index = () => {
                 Para questões sobre estes Termos de Uso, entre em contato conosco:
               </p>
               <div className="bg-white/5 rounded-lg p-4 space-y-2">
-                <p><strong>E-mail:</strong> contato@delfioltech.com</p>
+                <p><strong>E-mail:</strong> contato@delfioltech.com.br</p>
                 <p><strong>WhatsApp:</strong> (11) 91977-6155</p>
               </div>
             </section>
@@ -1105,7 +1105,7 @@ const Index = () => {
                 Se você tiver dúvidas sobre nossa Política de Cookies, entre em contato:
               </p>
               <div className="bg-white/5 rounded-lg p-4 space-y-2">
-                <p><strong>E-mail:</strong> contato@delfioltech.com</p>
+                <p><strong>E-mail:</strong> contato@delfioltech.com.br</p>
                 <p><strong>WhatsApp:</strong> (11) 91977-6155</p>
               </div>
             </section>
