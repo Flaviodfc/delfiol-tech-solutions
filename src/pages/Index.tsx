@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { MessageCircle, Mail, Phone, Facebook, Instagram, Linkedin, Code, Bot, Globe, Users, Briefcase, Star, ArrowRight, CheckCircle, Loader2, Zap, Rocket, Shield, Cpu, Database, Cloud, Monitor, Smartphone, Search, ShoppingCart, BarChart3, MessageSquare, Clock, TrendingUp, Target, Settings, Lightbulb, PieChart, Heart, Award, Sparkles } from "lucide-react";
+import { MessageCircle, Mail, Phone, Facebook, Instagram, Linkedin, Code, Bot, Globe, Users, Briefcase, Star, ArrowRight, CheckCircle, Loader2, Zap, Rocket, Shield, Cpu, Database, Cloud, Monitor, Smartphone, Search, ShoppingCart, BarChart3, MessageSquare, Clock, TrendingUp, Target, Settings, Lightbulb, PieChart, Heart, Award, Sparkles, FileText, Cookie, Scale } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { sendContactEmail, type ContactFormData } from "@/lib/emailjs";
 import { StartNowModal } from "@/components/StartNowModal";
@@ -19,6 +20,9 @@ const Index = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isStartNowModalOpen, setIsStartNowModalOpen] = useState(false);
   const [modalPrefilledMessage, setModalPrefilledMessage] = useState("");
+  const [showPrivacyModal, setShowPrivacyModal] = useState(false);
+  const [showTermsModal, setShowTermsModal] = useState(false);
+  const [showCookiesModal, setShowCookiesModal] = useState(false);
   const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -788,15 +792,24 @@ const Index = () => {
                 © 2025 DelFiol Tech. Todos os direitos reservados.
               </p>
               <div className="flex flex-wrap gap-4 text-sm text-white/50">
-                <button className="hover:text-cyan-400 transition-colors">
+                <button 
+                  onClick={() => setShowPrivacyModal(true)}
+                  className="hover:text-cyan-400 transition-colors"
+                >
                   Política de Privacidade
                 </button>
                 <span>•</span>
-                <button className="hover:text-cyan-400 transition-colors">
+                <button 
+                  onClick={() => setShowTermsModal(true)}
+                  className="hover:text-cyan-400 transition-colors"
+                >
                   Termos de Uso
                 </button>
                 <span>•</span>
-                <button className="hover:text-cyan-400 transition-colors">
+                <button 
+                  onClick={() => setShowCookiesModal(true)}
+                  className="hover:text-cyan-400 transition-colors"
+                >
                   Cookies
                 </button>
               </div>
@@ -824,6 +837,435 @@ const Index = () => {
 
       {/* Cookie Consent */}
       <CookieConsent />
+
+      {/* Modal de Política de Privacidade */}
+      <Dialog open={showPrivacyModal} onOpenChange={setShowPrivacyModal}>
+        <DialogContent className="glass border-cyan-400/20 max-w-4xl max-h-[90vh] overflow-y-auto bg-gradient-to-br from-slate-900/95 via-purple-900/95 to-slate-900/95 backdrop-blur-xl">
+          <DialogHeader>
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-10 h-10 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full flex items-center justify-center">
+                <Shield className="w-5 h-5 text-white" />
+              </div>
+              <DialogTitle className="text-2xl font-bold text-white">
+                Política de Privacidade
+              </DialogTitle>
+            </div>
+          </DialogHeader>
+
+          <div className="space-y-6 text-white/80 leading-relaxed">
+            <section>
+              <h3 className="text-xl font-semibold text-white mb-3">1. Informações que Coletamos</h3>
+              <p className="mb-3">
+                A DelFiol Tech coleta informações quando você visita nosso site, entra em contato conosco ou utiliza nossos serviços:
+              </p>
+              <ul className="list-disc list-inside space-y-2 ml-4">
+                <li>Informações de contato (nome, e-mail, telefone, empresa)</li>
+                <li>Dados de navegação (páginas visitadas, tempo de permanência, dispositivo utilizado)</li>
+                <li>Informações fornecidas em formulários de contato</li>
+                <li>Cookies e tecnologias similares para melhorar a experiência do usuário</li>
+              </ul>
+            </section>
+
+            <section>
+              <h3 className="text-xl font-semibold text-white mb-3">2. Como Utilizamos suas Informações</h3>
+              <p className="mb-3">Utilizamos as informações coletadas para:</p>
+              <ul className="list-disc list-inside space-y-2 ml-4">
+                <li>Responder às suas solicitações e fornecer suporte</li>
+                <li>Melhorar nossos serviços e experiência do usuário</li>
+                <li>Enviar informações relevantes sobre nossos serviços (com seu consentimento)</li>
+                <li>Analisar o desempenho do site e otimizar o conteúdo</li>
+                <li>Cumprir obrigações legais e regulamentares</li>
+              </ul>
+            </section>
+
+            <section>
+              <h3 className="text-xl font-semibold text-white mb-3">3. Cookies e Tecnologias Similares</h3>
+              <p className="mb-3">
+                Utilizamos cookies para melhorar sua experiência em nosso site. Os cookies são pequenos arquivos de texto 
+                armazenados em seu dispositivo que nos ajudam a:
+              </p>
+              <ul className="list-disc list-inside space-y-2 ml-4">
+                <li>Lembrar suas preferências e configurações</li>
+                <li>Analisar como você utiliza nosso site</li>
+                <li>Personalizar conteúdo e anúncios</li>
+                <li>Fornecer funcionalidades de redes sociais</li>
+              </ul>
+              <p className="mt-3">
+                Você pode controlar o uso de cookies através das configurações do seu navegador.
+              </p>
+            </section>
+
+            <section>
+              <h3 className="text-xl font-semibold text-white mb-3">4. Compartilhamento de Informações</h3>
+              <p className="mb-3">
+                Não vendemos, alugamos ou compartilhamos suas informações pessoais com terceiros, exceto:
+              </p>
+              <ul className="list-disc list-inside space-y-2 ml-4">
+                <li>Com seu consentimento explícito</li>
+                <li>Para cumprir obrigações legais</li>
+                <li>Com prestadores de serviços que nos auxiliam (sob acordos de confidencialidade)</li>
+                <li>Para proteger nossos direitos e segurança</li>
+              </ul>
+            </section>
+
+            <section>
+              <h3 className="text-xl font-semibold text-white mb-3">5. Segurança dos Dados</h3>
+              <p>
+                Implementamos medidas de segurança técnicas e organizacionais adequadas para proteger suas informações 
+                contra acesso não autorizado, alteração, divulgação ou destruição. Utilizamos criptografia, controles 
+                de acesso e monitoramento contínuo para garantir a segurança dos seus dados.
+              </p>
+            </section>
+
+            <section>
+              <h3 className="text-xl font-semibold text-white mb-3">6. Seus Direitos</h3>
+              <p className="mb-3">Você tem o direito de:</p>
+              <ul className="list-disc list-inside space-y-2 ml-4">
+                <li>Acessar suas informações pessoais</li>
+                <li>Corrigir dados incorretos ou incompletos</li>
+                <li>Solicitar a exclusão de suas informações</li>
+                <li>Retirar seu consentimento a qualquer momento</li>
+                <li>Solicitar a portabilidade dos seus dados</li>
+                <li>Apresentar reclamações às autoridades competentes</li>
+              </ul>
+            </section>
+
+            <section>
+              <h3 className="text-xl font-semibold text-white mb-3">7. Retenção de Dados</h3>
+              <p>
+                Mantemos suas informações pessoais apenas pelo tempo necessário para cumprir as finalidades descritas 
+                nesta política, atender a requisitos legais ou resolver disputas. Quando não precisarmos mais de suas 
+                informações, elas serão excluídas ou anonimizadas de forma segura.
+              </p>
+            </section>
+
+            <section>
+              <h3 className="text-xl font-semibold text-white mb-3">8. Alterações nesta Política</h3>
+              <p>
+                Podemos atualizar esta Política de Privacidade periodicamente. Notificaremos sobre mudanças significativas 
+                através do nosso site ou por e-mail. A versão mais atual estará sempre disponível em nosso site.
+              </p>
+            </section>
+
+            <section>
+              <h3 className="text-xl font-semibold text-white mb-3">9. Contato</h3>
+              <p className="mb-3">
+                Para questões sobre esta Política de Privacidade ou sobre o tratamento de seus dados pessoais, 
+                entre em contato conosco:
+              </p>
+              <div className="bg-white/5 rounded-lg p-4 space-y-2">
+                <p><strong>E-mail:</strong> contato@delfioltech.com</p>
+                <p><strong>WhatsApp:</strong> (11) 91977-6155</p>
+                <p><strong>Endereço:</strong> São Paulo, SP - Brasil</p>
+              </div>
+            </section>
+
+            <section className="border-t border-white/20 pt-6">
+              <p className="text-sm text-white/60">
+                <strong>Última atualização:</strong> Janeiro de 2025
+              </p>
+              <p className="text-sm text-white/60 mt-2">
+                Esta política está em conformidade com a Lei Geral de Proteção de Dados (LGPD) - Lei nº 13.709/2018.
+              </p>
+            </section>
+          </div>
+
+          <div className="flex justify-end mt-8 pt-6 border-t border-white/20">
+            <Button
+              onClick={() => setShowPrivacyModal(false)}
+              className="futuristic-btn bg-gradient-to-r from-cyan-500 to-blue-600"
+            >
+              Entendi
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
+
+      {/* Modal de Termos de Uso */}
+      <Dialog open={showTermsModal} onOpenChange={setShowTermsModal}>
+        <DialogContent className="glass border-emerald-400/20 max-w-4xl max-h-[90vh] overflow-y-auto bg-gradient-to-br from-slate-900/95 via-emerald-900/95 to-slate-900/95 backdrop-blur-xl">
+          <DialogHeader>
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-10 h-10 bg-gradient-to-r from-emerald-400 to-green-500 rounded-full flex items-center justify-center">
+                <FileText className="w-5 h-5 text-white" />
+              </div>
+              <DialogTitle className="text-2xl font-bold text-white">
+                Termos de Uso
+              </DialogTitle>
+            </div>
+          </DialogHeader>
+
+          <div className="space-y-6 text-white/80 leading-relaxed">
+            <section>
+              <h3 className="text-xl font-semibold text-white mb-3">1. Aceitação dos Termos</h3>
+              <p>
+                Ao acessar e utilizar o site da DelFiol Tech, você concorda em cumprir e estar vinculado aos seguintes 
+                termos e condições de uso. Se você não concordar com qualquer parte destes termos, não deve usar nosso site.
+              </p>
+            </section>
+
+            <section>
+              <h3 className="text-xl font-semibold text-white mb-3">2. Descrição dos Serviços</h3>
+              <p className="mb-3">A DelFiol Tech oferece:</p>
+              <ul className="list-disc list-inside space-y-2 ml-4">
+                <li>Desenvolvimento de sites e aplicações web</li>
+                <li>Soluções de inteligência artificial e chatbots</li>
+                <li>Consultoria tecnológica para empresas</li>
+                <li>Suporte técnico e manutenção de sistemas</li>
+              </ul>
+            </section>
+
+            <section>
+              <h3 className="text-xl font-semibold text-white mb-3">3. Uso Aceitável</h3>
+              <p className="mb-3">Você concorda em usar nosso site apenas para fins legais e de acordo com estes termos. É proibido:</p>
+              <ul className="list-disc list-inside space-y-2 ml-4">
+                <li>Usar o site de forma que possa danificar, desabilitar ou prejudicar o site</li>
+                <li>Tentar obter acesso não autorizado a qualquer parte do site</li>
+                <li>Transmitir material que seja difamatório, obsceno ou ilegal</li>
+                <li>Violar direitos de propriedade intelectual</li>
+                <li>Usar o site para spam ou atividades comerciais não autorizadas</li>
+              </ul>
+            </section>
+
+            <section>
+              <h3 className="text-xl font-semibold text-white mb-3">4. Propriedade Intelectual</h3>
+              <p>
+                Todo o conteúdo do site, incluindo textos, gráficos, logos, ícones, imagens, clipes de áudio, downloads 
+                digitais e compilações de dados, é propriedade da DelFiol Tech ou de seus fornecedores de conteúdo e é 
+                protegido por leis de direitos autorais brasileiras e internacionais.
+              </p>
+            </section>
+
+            <section>
+              <h3 className="text-xl font-semibold text-white mb-3">5. Contratos de Serviço</h3>
+              <p className="mb-3">Para serviços contratados:</p>
+              <ul className="list-disc list-inside space-y-2 ml-4">
+                <li>Todos os projetos são regidos por contratos específicos</li>
+                <li>Prazos e entregas são definidos conforme acordo</li>
+                <li>Pagamentos seguem cronograma estabelecido</li>
+                <li>Alterações no escopo podem gerar custos adicionais</li>
+                <li>Garantias são fornecidas conforme especificado no contrato</li>
+              </ul>
+            </section>
+
+            <section>
+              <h3 className="text-xl font-semibold text-white mb-3">6. Limitação de Responsabilidade</h3>
+              <p>
+                A DelFiol Tech não será responsável por quaisquer danos diretos, indiretos, incidentais, especiais ou 
+                consequenciais resultantes do uso ou incapacidade de usar nosso site ou serviços, mesmo que tenhamos 
+                sido avisados da possibilidade de tais danos.
+              </p>
+            </section>
+
+            <section>
+              <h3 className="text-xl font-semibold text-white mb-3">7. Disponibilidade do Site</h3>
+              <p>
+                Embora nos esforcemos para manter o site disponível 24/7, não garantimos que o site estará sempre 
+                disponível ou livre de erros. Podemos suspender, retirar ou restringir a disponibilidade de todo ou 
+                qualquer parte do site por razões comerciais e operacionais.
+              </p>
+            </section>
+
+            <section>
+              <h3 className="text-xl font-semibold text-white mb-3">8. Modificações dos Termos</h3>
+              <p>
+                Reservamo-nos o direito de modificar estes termos a qualquer momento. As alterações entrarão em vigor 
+                imediatamente após a publicação no site. É sua responsabilidade revisar periodicamente estes termos.
+              </p>
+            </section>
+
+            <section>
+              <h3 className="text-xl font-semibold text-white mb-3">9. Lei Aplicável</h3>
+              <p>
+                Estes termos são regidos pelas leis brasileiras. Qualquer disputa será resolvida nos tribunais competentes 
+                de São Paulo, SP.
+              </p>
+            </section>
+
+            <section>
+              <h3 className="text-xl font-semibold text-white mb-3">10. Contato</h3>
+              <p className="mb-3">
+                Para questões sobre estes Termos de Uso, entre em contato conosco:
+              </p>
+              <div className="bg-white/5 rounded-lg p-4 space-y-2">
+                <p><strong>E-mail:</strong> contato@delfioltech.com</p>
+                <p><strong>WhatsApp:</strong> (11) 91977-6155</p>
+                <p><strong>Endereço:</strong> São Paulo, SP - Brasil</p>
+              </div>
+            </section>
+
+            <section className="border-t border-white/20 pt-6">
+              <p className="text-sm text-white/60">
+                <strong>Última atualização:</strong> Janeiro de 2025
+              </p>
+            </section>
+          </div>
+
+          <div className="flex justify-end mt-8 pt-6 border-t border-white/20">
+            <Button
+              onClick={() => setShowTermsModal(false)}
+              className="futuristic-btn bg-gradient-to-r from-emerald-500 to-green-600"
+            >
+              Entendi
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
+
+      {/* Modal de Política de Cookies */}
+      <Dialog open={showCookiesModal} onOpenChange={setShowCookiesModal}>
+        <DialogContent className="glass border-amber-400/20 max-w-4xl max-h-[90vh] overflow-y-auto bg-gradient-to-br from-slate-900/95 via-amber-900/95 to-slate-900/95 backdrop-blur-xl">
+          <DialogHeader>
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-10 h-10 bg-gradient-to-r from-amber-400 to-orange-500 rounded-full flex items-center justify-center">
+                <Cookie className="w-5 h-5 text-white" />
+              </div>
+              <DialogTitle className="text-2xl font-bold text-white">
+                Política de Cookies
+              </DialogTitle>
+            </div>
+          </DialogHeader>
+
+          <div className="space-y-6 text-white/80 leading-relaxed">
+            <section>
+              <h3 className="text-xl font-semibold text-white mb-3">1. O que são Cookies?</h3>
+              <p>
+                Cookies são pequenos arquivos de texto que são armazenados em seu dispositivo (computador, tablet ou 
+                celular) quando você visita um site. Eles são amplamente utilizados para fazer os sites funcionarem 
+                de forma mais eficiente, bem como para fornecer informações aos proprietários do site.
+              </p>
+            </section>
+
+            <section>
+              <h3 className="text-xl font-semibold text-white mb-3">2. Como Utilizamos Cookies</h3>
+              <p className="mb-3">A DelFiol Tech utiliza cookies para:</p>
+              <ul className="list-disc list-inside space-y-2 ml-4">
+                <li>Melhorar a funcionalidade e desempenho do nosso site</li>
+                <li>Analisar como nosso site é usado</li>
+                <li>Personalizar sua experiência de navegação</li>
+                <li>Lembrar suas preferências e configurações</li>
+                <li>Fornecer conteúdo relevante</li>
+                <li>Medir a eficácia de nossas campanhas de marketing</li>
+              </ul>
+            </section>
+
+            <section>
+              <h3 className="text-xl font-semibold text-white mb-3">3. Tipos de Cookies que Utilizamos</h3>
+              
+              <div className="space-y-4">
+                <div className="bg-white/5 rounded-lg p-4">
+                  <h4 className="font-semibold text-white mb-2">🔧 Cookies Essenciais</h4>
+                  <p className="text-sm">
+                    Necessários para o funcionamento básico do site. Não podem ser desabilitados.
+                  </p>
+                </div>
+                
+                <div className="bg-white/5 rounded-lg p-4">
+                  <h4 className="font-semibold text-white mb-2">📊 Cookies de Análise</h4>
+                  <p className="text-sm">
+                    Coletam informações sobre como você usa nosso site para nos ajudar a melhorá-lo.
+                  </p>
+                </div>
+                
+                <div className="bg-white/5 rounded-lg p-4">
+                  <h4 className="font-semibold text-white mb-2">🎯 Cookies de Marketing</h4>
+                  <p className="text-sm">
+                    Utilizados para exibir anúncios relevantes e medir a eficácia de campanhas.
+                  </p>
+                </div>
+                
+                <div className="bg-white/5 rounded-lg p-4">
+                  <h4 className="font-semibold text-white mb-2">⚙️ Cookies de Funcionalidade</h4>
+                  <p className="text-sm">
+                    Permitem que o site lembre suas escolhas e forneça recursos aprimorados.
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <section>
+              <h3 className="text-xl font-semibold text-white mb-3">4. Cookies de Terceiros</h3>
+              <p className="mb-3">Utilizamos serviços de terceiros que podem definir cookies:</p>
+              <ul className="list-disc list-inside space-y-2 ml-4">
+                <li><strong>Google Analytics:</strong> Para análise de tráfego e comportamento do usuário</li>
+                <li><strong>Facebook Pixel:</strong> Para otimização de anúncios e remarketing</li>
+                <li><strong>Google Ads:</strong> Para campanhas publicitárias direcionadas</li>
+                <li><strong>Redes Sociais:</strong> Para integração com plataformas sociais</li>
+              </ul>
+            </section>
+
+            <section>
+              <h3 className="text-xl font-semibold text-white mb-3">5. Gerenciamento de Cookies</h3>
+              <p className="mb-3">Você pode controlar e gerenciar cookies de várias maneiras:</p>
+              
+              <div className="space-y-3">
+                <div className="bg-white/5 rounded-lg p-4">
+                  <h4 className="font-semibold text-white mb-2">🌐 Configurações do Navegador</h4>
+                  <p className="text-sm mb-2">A maioria dos navegadores permite:</p>
+                  <ul className="text-sm list-disc list-inside ml-4 space-y-1">
+                    <li>Ver quais cookies estão armazenados</li>
+                    <li>Excluir cookies individualmente ou todos</li>
+                    <li>Bloquear cookies de sites específicos</li>
+                    <li>Bloquear cookies de terceiros</li>
+                    <li>Excluir todos os cookies ao fechar o navegador</li>
+                  </ul>
+                </div>
+                
+                <div className="bg-white/5 rounded-lg p-4">
+                  <h4 className="font-semibold text-white mb-2">⚠️ Importante</h4>
+                  <p className="text-sm">
+                    Desabilitar cookies pode afetar a funcionalidade do nosso site e sua experiência de navegação.
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <section>
+              <h3 className="text-xl font-semibold text-white mb-3">6. Duração dos Cookies</h3>
+              <p className="mb-3">Utilizamos dois tipos de cookies baseados na duração:</p>
+              <ul className="list-disc list-inside space-y-2 ml-4">
+                <li><strong>Cookies de Sessão:</strong> Temporários, excluídos quando você fecha o navegador</li>
+                <li><strong>Cookies Persistentes:</strong> Permanecem no seu dispositivo por um período determinado</li>
+              </ul>
+            </section>
+
+            <section>
+              <h3 className="text-xl font-semibold text-white mb-3">7. Atualizações desta Política</h3>
+              <p>
+                Podemos atualizar esta Política de Cookies periodicamente para refletir mudanças em nossas práticas 
+                ou por outros motivos operacionais, legais ou regulamentares.
+              </p>
+            </section>
+
+            <section>
+              <h3 className="text-xl font-semibold text-white mb-3">8. Contato</h3>
+              <p className="mb-3">
+                Se você tiver dúvidas sobre nossa Política de Cookies, entre em contato:
+              </p>
+              <div className="bg-white/5 rounded-lg p-4 space-y-2">
+                <p><strong>E-mail:</strong> contato@delfioltech.com</p>
+                <p><strong>WhatsApp:</strong> (11) 91977-6155</p>
+                <p><strong>Endereço:</strong> São Paulo, SP - Brasil</p>
+              </div>
+            </section>
+
+            <section className="border-t border-white/20 pt-6">
+              <p className="text-sm text-white/60">
+                <strong>Última atualização:</strong> Janeiro de 2025
+              </p>
+            </section>
+          </div>
+
+          <div className="flex justify-end mt-8 pt-6 border-t border-white/20">
+            <Button
+              onClick={() => setShowCookiesModal(false)}
+              className="futuristic-btn bg-gradient-to-r from-amber-500 to-orange-600"
+            >
+              Entendi
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
